@@ -71,6 +71,69 @@
   nav.top .links a { color: var(--quiet); text-decoration: none; }
   nav.top .links a:hover { color: var(--navy); }
   nav.top .links .founder-link { color: var(--brass); font-weight: 500; }
+  nav.top .links .resume-link { color: var(--navy); font-weight: 600; border-bottom: 1px solid var(--brass); padding-bottom: 1px; }
+  nav.top .links .resume-link:hover { color: var(--brass); }
+
+  /* Buttons */
+  .btn-row { display: flex; gap: 0.8rem; flex-wrap: wrap; margin: 0 0 1.75rem; }
+  .btn {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    letter-spacing: 0.03em;
+    padding: 0.72rem 1.25rem;
+    border-radius: 2px;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: background 0.15s, color 0.15s, border-color 0.15s, transform 0.15s;
+    cursor: pointer;
+  }
+  .btn-primary { background: var(--navy); color: var(--paper); border: 1px solid var(--navy); }
+  .btn-primary:hover { background: var(--brass); border-color: var(--brass); color: var(--navy); transform: translateY(-1px); }
+  .btn-ghost { background: transparent; color: var(--navy); border: 1px solid var(--rule); }
+  .btn-ghost:hover { border-color: var(--brass); color: var(--brass); transform: translateY(-1px); }
+
+  /* Contact form */
+  .contact-form { display: grid; gap: 1.1rem; max-width: 42rem; }
+  .contact-form .field2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1.1rem; }
+  .contact-form label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: var(--brass);
+    display: block;
+    margin-bottom: 0.4rem;
+  }
+  .contact-form input, .contact-form textarea {
+    width: 100%;
+    padding: 0.78rem 0.95rem;
+    background: var(--card);
+    border: 1px solid var(--rule);
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    color: var(--ink);
+    border-radius: 2px;
+    transition: border-color 0.15s;
+  }
+  .contact-form input:focus, .contact-form textarea:focus { outline: none; border-color: var(--brass); }
+  .contact-form textarea { resize: vertical; min-height: 130px; line-height: 1.55; }
+  .contact-form .form-status {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    margin-top: 0.25rem;
+    min-height: 1.2rem;
+  }
+  .contact-form .form-status.ok { color: #2f7d4f; }
+  .contact-form .form-status.err { color: #b23b3b; }
+  .contact-wrap { display: grid; grid-template-columns: 1.4fr 1fr; gap: 3rem; align-items: start; }
+  .contact-aside {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--quiet);
+    line-height: 1.9;
+  }
+  .contact-aside a { color: var(--ink); border-bottom: 1px dotted var(--brass); }
 
   /* Hero */
   .hero { padding: 5rem 0 4rem; display: grid; grid-template-columns: 1.6fr 1fr; gap: 4rem; align-items: start; }
@@ -413,9 +476,12 @@
 
   @media (max-width: 720px) {
     .hero, .projects-grid, .section-head, .skills-grid, .ed-row, footer .grid { grid-template-columns: 1fr; gap: 2rem; }
+    .contact-form .field2, .contact-wrap { grid-template-columns: 1fr; }
     .timeline .row { grid-template-columns: 1fr; }
     .nisaba-card .stats-row { grid-template-columns: repeat(2, 1fr); }
-    nav.top .links { gap: 1rem; font-size: 0.7rem; }
+    nav.top .inner { flex-wrap: wrap; gap: 0.4rem 0.75rem; }
+    nav.top .logo { font-size: 1rem; }
+    nav.top .links { flex-wrap: wrap; justify-content: flex-start; gap: 0.5rem 0.9rem; font-size: 0.7rem; }
   }
 </style>
 </head>
@@ -430,6 +496,7 @@
       <a href="#projects">projects</a>
       <a href="#experience">experience</a>
       <a href="#contact">contact</a>
+      <a href="assets/resume.pdf" class="resume-link" target="_blank" rel="noopener" download>↓ résumé</a>
     </div>
   </div>
 </nav>
@@ -441,6 +508,10 @@
       <span class="founder-badge"><span class="dot"></span>Founder · Open to opportunities · NYC</span>
       <h1>Stan <span class="pref">(Aisling)</span><br>Leiva-Davila</h1>
       <p class="lede">Independent, self-taught <strong>AI Builder &amp; founder</strong>. Ship production-grade systems solo &mdash; a native-Rust desktop terminal in 30 days (<strong>+37% paper-trade ROI</strong>), Python AI lead-gen scrapers, and full web platforms. Specializing in AI-driven lead-generation tools and financial intelligence platforms.</p>
+      <div class="btn-row">
+        <a class="btn btn-primary" href="assets/resume.pdf" target="_blank" rel="noopener" download>Download résumé ↓</a>
+        <a class="btn btn-ghost" href="#contact">Get in touch →</a>
+      </div>
       <p class="meta">
         ness.aisling@gmail.com &middot; New York, NY<br>
         <a href="https://www.linkedin.com/in/stan-leiva-davila/">linkedin.com/in/stan-leiva-davila</a><br>
@@ -560,6 +631,22 @@
         <span style="font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:var(--quiet);">archived &middot; cover-letter detail</span>
       </div>
 
+      <div class="card">
+        <p class="tag">Full-stack &middot; Civic tech</p>
+        <h3>Nuclear Force &mdash; Escape Router</h3>
+        <p>Interactive NYC nuclear-emergency simulator: Leaflet blast-zone modeling (4 yields), nearest-shelter finder over 17 real sites, wind-driven fallout drift, and algorithmic evacuation routing. Packaged as a native Windows app via Electron.</p>
+        <p class="stats">JavaScript &middot; Leaflet &middot; Electron &middot; pnpm monorepo &middot; Geolocation APIs</p>
+        <a href="https://github.com/aislingld-pursuit/Nightfall-Win-x64" target="_blank" rel="noopener">repository &rarr;</a>
+      </div>
+
+      <div class="card">
+        <p class="tag">Full-stack &middot; Desktop app</p>
+        <h3>NYC Showroom &mdash; Inventory Tracker</h3>
+        <p>Multi-user Windows desktop app tracking 2,730+ sample-room items in PostgreSQL (Supabase). Named accounts with bcrypt auth and role-based access, live KPI dashboard, check-in/out transactions, and a full who-did-what audit log.</p>
+        <p class="stats">PostgreSQL &middot; Supabase &middot; bcrypt &middot; role-based access &middot; desktop .exe</p>
+        <a href="https://github.com/aislingld-pursuit/Inventorix-Unified-Live-Dashboard-Part-4-of-Solutions-" target="_blank" rel="noopener">repository &rarr;</a>
+      </div>
+
     </div>
   </section>
 
@@ -665,9 +752,41 @@
     </div>
   </section>
 
+  <section id="contact">
+    <div class="section-head">
+      <div>
+        <p class="num">07 &middot; Contact</p>
+        <p class="sub">Open to opportunities</p>
+      </div>
+      <h2>Let's build something. Reach out directly.</h2>
+    </div>
+    <div class="contact-wrap">
+      <form class="contact-form" id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY">
+        <input type="hidden" name="subject" value="New message from Builder Portfolio">
+        <input type="hidden" name="from_name" value="Builder Portfolio">
+        <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" style="display:none">
+        <div class="field2">
+          <div><label for="cf-name">Name</label><input id="cf-name" type="text" name="name" autocomplete="name" required></div>
+          <div><label for="cf-email">Email</label><input id="cf-email" type="email" name="email" autocomplete="email" required></div>
+        </div>
+        <div><label for="cf-msg">Message</label><textarea id="cf-msg" name="message" required></textarea></div>
+        <button class="btn btn-primary" type="submit">Send message &rarr;</button>
+        <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+      </form>
+      <div class="contact-aside">
+        Prefer email?<br>
+        <a href="mailto:ness.aisling@gmail.com">ness.aisling@gmail.com</a><br><br>
+        New York, NY 10016<br><br>
+        <a href="https://www.linkedin.com/in/stan-leiva-davila/" target="_blank" rel="noopener">LinkedIn &rarr;</a><br>
+        <a href="https://github.com/nessaisling-lab" target="_blank" rel="noopener">GitHub &rarr;</a>
+      </div>
+    </div>
+  </section>
+
 </div>
 
-<footer id="contact">
+<footer id="footer">
   <div class="container">
     <div class="grid">
       <div>
@@ -693,6 +812,46 @@
     <p class="colophon">&copy; 2026 Stan (Aisling) Leiva-Davila &middot; Builder Portfolio v2 &middot; Source Serif 4 + Inter + JetBrains Mono &middot; Fraunces in founder section &middot; Built solo in NYC.</p>
   </div>
 </footer>
+
+<script>
+  (function () {
+    var form = document.getElementById('contactForm');
+    if (!form) return;
+    var status = document.getElementById('formStatus');
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var key = form.querySelector('input[name="access_key"]').value;
+      if (!key || key === 'YOUR_WEB3FORMS_ACCESS_KEY') {
+        status.className = 'form-status err';
+        status.textContent = 'Form not configured yet — email ness.aisling@gmail.com directly.';
+        return;
+      }
+      var btn = form.querySelector('button[type="submit"]');
+      var original = btn.textContent;
+      btn.disabled = true;
+      btn.textContent = 'Sending…';
+      status.className = 'form-status';
+      status.textContent = '';
+      fetch(form.action, { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' } })
+        .then(function (r) { return r.json(); })
+        .then(function (data) {
+          if (data.success) {
+            status.className = 'form-status ok';
+            status.textContent = 'Thanks — message sent. I’ll get back to you soon.';
+            form.reset();
+          } else {
+            status.className = 'form-status err';
+            status.textContent = (data.message || 'Something went wrong.') + ' You can also email ness.aisling@gmail.com.';
+          }
+        })
+        .catch(function () {
+          status.className = 'form-status err';
+          status.textContent = 'Network error — email ness.aisling@gmail.com instead.';
+        })
+        .finally(function () { btn.disabled = false; btn.textContent = original; });
+    });
+  })();
+</script>
 
 </body>
 </html>
