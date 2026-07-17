@@ -3,7 +3,7 @@
 AI Builder & Founder · New York, NY
 
 ness.aisling@gmail.com · aisling.ld@pursuit.org · 201-471-1178
-[linkedin.com/in/stan-leiva-davila](https://www.linkedin.com/in/stan-leiva-davila/) · [github.com/nessaisling-lab](https://github.com/nessaisling-lab)
+[linkedin.com/in/stan-leiva-davila](https://www.linkedin.com/in/stan-leiva-davila/) · [github.com/nessaisling-lab](https://github.com/nessaisling-lab) · [github.com/aislingld-pursuit](https://github.com/aislingld-pursuit)
 
 ## Professional Summary
 
@@ -28,6 +28,11 @@ Self-taught AI Builder and founder who ships production-grade systems solo and o
 - Owned listing, marketing, bookkeeping, vendor coordination, and guest relations end-to-end — the same full-ownership discipline applied to software systems today.
 
 ## Technical Projects
+
+**Ziqpu — Multi-Agent Astrology Synastry Engine** · 2026 · [repo](https://github.com/nessaisling-lab/Ziqpu-L2-Cycle-3)
+*Scores a natal chart against the chart of anything with a date of origin (v1: stocks by IPO); reflection, not advice.*
+
+- Led a 3-person team building a Rust workspace with two visible agents — a measurer that computes exact aspects from JPL-validated ephemeris and an interpreter that reads them back — plus a read-only axum sidecar, an MCP server, and a Dioxus desktop UI.
 
 **Resona / Wisper — Privacy-First On-Device Voice-to-Text** · 2026 · [repo](https://github.com/aislingld-pursuit/L2-Clone-Prodject)
 *Cross-platform desktop dictation app: live streaming + file/YouTube transcription, 100% on-device via whisper.cpp.*
