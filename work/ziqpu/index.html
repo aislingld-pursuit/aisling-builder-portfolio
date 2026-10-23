@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ziqpu · Stan (Aisling) Leiva-Davila</title>
+<meta name="description" content="An astrology decision tool with two visible agents: one measures, one interprets, and the separation is the integrity guarantee.">
+<link rel="canonical" href="https://nessaisling-lab.github.io/aisling-builder-portfolio/work/ziqpu/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Ziqpu · Stan (Aisling) Leiva-Davila">
+<meta property="og:description" content="An astrology decision tool with two visible agents: one measures, one interprets, and the separation is the integrity guarantee.">
+<meta property="og:url" content="https://nessaisling-lab.github.io/aisling-builder-portfolio/work/ziqpu/">
+<meta property="og:image" content="https://nessaisling-lab.github.io/aisling-builder-portfolio/assets/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#F4F1E9" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#121417" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../../assets/favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png">
+<script>try{var m=localStorage.getItem('theme');if(m)document.documentElement.dataset.theme=m}catch(e){}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/site.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top"><div class="wrap top-in"><a class="brand" href="../../"><span class="brand-name">Stan (Aisling) Leiva-Davila</span><span class="brand-tag">rust · integrity · nyc</span></a><nav aria-label="Site"><a href="../../work/" aria-current="page">Work</a><a href="../../about/" aria-current="false">About</a><a href="../../resume/" aria-current="false">Résumé</a><button class="theme" type="button" aria-label="Switch between light and dark theme"><span class="theme-ic" aria-hidden="true"></span></button></nav></div></header>
+<main id="main">
+<article class="wrap case"><nav class="crumbs" aria-label="Breadcrumb"><a href="../../work/">work</a><span aria-hidden="true"> / </span><span aria-current="page">ziqpu</span></nav><header class="case-head"><p class="kicker">Pursuit L2 · Cycle 3 · 2026</p><h1>Ziqpu</h1><p class="deck">An astrology decision tool with two visible agents: one measures, one interprets, and the separation is the integrity guarantee.</p><p class="status-line"><span class="dot" aria-hidden="true"></span>Runs locally</p></header><div class="case-grid"><aside class="spec" aria-label="Project facts"><div class="figs"><div class="fig"><span class="fig-v">2</span><span class="fig-k">agents, measurer and interpreter</span></div><div class="fig"><span class="fig-v">0</span><span class="fig-k">API keys or network needed</span></div><div class="fig"><span class="fig-v">Q6_K</span><span class="fig-k">Qwen3 14B, picked by benchmark on this laptop</span></div></div><dl class="spec-dl"><div><dt>Role</dt><dd>Team lead · 3 people</dd></div><div><dt>Stack</dt><dd class="stack-chips"><span class="chip">Rust</span><span class="chip">Dioxus</span><span class="chip">axum</span><span class="chip">Postgres</span><span class="chip">MCP</span><span class="chip">ANISE / JPL ephemeris</span><span class="chip">local models</span></dd></div></dl><div class="spec-links"><a class="btn small ghost" href="https://github.com/nessaisling-lab/Ziqpu-L2-Cycle-3">Source →</a></div></aside><div class="case-body"><figure class="media wide"><video src="../../assets/work/ziqpu/workflow.mp4" poster="../../assets/work/ziqpu/workflow-poster.jpg" width="1100" height="798" controls=true muted=true loop="true" playsinline=true preload="none" aria-label="Ziqpu: benchmarking the machine and recommending a local model" data-autoplay="true"></video><figcaption>fig. 1 · Ziqpu: benchmarking the machine and recommending a local model</figcaption></figure><section class="cs"><h2><span class="cs-n" aria-hidden="true">01</span>What it is</h2><p class="cs-lead first">It scores your natal chart against the chart of anything with a date of origin (v1: stocks, by IPO). Measurement and meaning are different programs, so a language model cannot touch the arithmetic.</p></section><section class="cs"><h2><span class="cs-n" aria-hidden="true">02</span>How it works</h2><p class="cs-lead">The sequence is fixed in code rather than chosen by the model.</p><ul><li>Hamun-ana computes positions and aspects and returns structured JSON only. It never interprets.</li><li>Ungasaga reads those measures back in three beats (measured, meaning, reminder) and declines to give advice.</li><li>A read-only axum sidecar and an MCP server sit beside the Dioxus desktop UI.</li></ul></section><section class="cs"><h2><span class="cs-n" aria-hidden="true">03</span>The hard part</h2><p class="cs-lead">An unknown birth time is honest.</p><ul><li>With no birth hour, the app withholds the Ascendant and Midheaven rather than guessing them.</li><li>It benchmarks the machine and recommends the largest quantisation that actually fits, and downloads nothing until you say so.</li></ul></section><section class="cs"><h2><span class="cs-n" aria-hidden="true">04</span>What it doesn&#39;t do</h2><p class="cs-lead">For reflection, not prediction.</p><ul><li>Not financial, medical, legal or psychological guidance. The interpreter is built to decline advice rather than disclaim it in a footer.</li></ul></section></div></div><nav class="pager" aria-label="More builds"><a class="pager-prev" href="../../work/siteassure/"><span class="pager-k">← previous</span><span class="pager-n">SiteAssure</span></a><a class="pager-next" href="../../work/excalidraw/"><span class="pager-k">next →</span><span class="pager-n">Excalidraw: First-Save Features</span></a></nav></article>
+</main>
+<footer class="foot"><div class="wrap foot-in"><div><p class="foot-name">Stan (Aisling) Leiva-Davila</p><p><a href="mailto:ness.aisling@gmail.com">ness.aisling@gmail.com</a> · <a href="https://www.linkedin.com/in/stan-leiva-davila/">LinkedIn</a> · <a href="https://github.com/nessaisling-lab">GitHub</a></p></div><p class="colophon">Rendered from Rust: Dioxus RSX in, static HTML out, no WASM. Every text colour is
+                     held to WCAG 4.5:1 by a compile-time assertion. <a href="https://github.com/nessaisling-lab/aisling-builder-portfolio/tree/main/site">Source</a></p></div></footer>
+<script src="../../assets/site.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+[package]
+name = "site"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.80"
+description = "Renders the portfolio: Dioxus RSX in, static HTML pages out."
+publish = false
+
+[dependencies]
+# default-features = false keeps the desktop/web/server renderers out of the tree.
+# This binary never launches an app -- it renders VirtualDoms to Strings and exits.
+dioxus = { version = "0.7", default-features = false, features = ["macro", "html", "signals"] }
+dioxus-ssr = "0.7"
+
+[profile.release]
+opt-level = 1

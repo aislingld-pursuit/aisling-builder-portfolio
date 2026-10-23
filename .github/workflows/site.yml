@@ -1,0 +1,48 @@
+name: site
+
+# Enforces one invariant: the committed pages are exactly what site/ renders.
+#
+# This job deliberately does NOT commit anything. A bot that regenerates and pushes
+# would keep the files in sync by overwriting whatever a person did, which hides the
+# mistake instead of reporting it. Failing the build says which of the two is wrong.
+#
+# Deployment is unchanged: GitHub Pages serves the committed files from main.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Show toolchain
+        run: cargo --version && rustc --version
+
+      - name: Clippy
+        run: cargo clippy --manifest-path site/Cargo.toml --all-targets --locked -- -D warnings
+
+      - name: Tests (contrast maths, content rules, every linked asset exists)
+        # The palette's WCAG assertions are const, so a failing pair stops `cargo build`
+        # itself; the tests add the content rules and the asset check.
+        run: cargo test --manifest-path site/Cargo.toml --locked
+
+      - name: Re-render the site
+        run: cargo run --manifest-path site/Cargo.toml --locked
+
+      - name: Committed pages must match what the Rust renders
+        run: |
+          if ! git diff --exit-code -- index.html 404.html work about resume assets/site.css assets/site.js; then
+            echo "::error::Generated pages do not match the output of site/."
+            echo "Edit site/src/ (or site/assets/), then run:"
+            echo "    cargo run --manifest-path site/Cargo.toml"
+            echo "and commit the regenerated files."
+            exit 1
+          fi

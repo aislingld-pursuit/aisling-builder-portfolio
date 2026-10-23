@@ -5,3 +5,6 @@ Thumbs.db
 .idea/
 node_modules/
 .gstack/
+
+# Rust build output for site/
+site/target/
