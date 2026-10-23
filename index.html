@@ -3,11 +3,21 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Stan (Aisling) Leiva-Davila — Founder & AI Builder</title>
-<meta name="description" content="Stan (Aisling) Leiva-Davila — Founder of Nisaba Capital Charting · AI Builder · Hardware-fluent Software Engineer · NYC. Inaugural cohort of Pursuit's AI-Native Builder Program.">
-<meta property="og:title" content="Stan (Aisling) Leiva-Davila — Founder & AI Builder">
-<meta property="og:description" content="Native-Rust financial intelligence terminal · +37% paper-trade ROI · built solo in 30 days. NYC.">
+<title>Stan (Aisling) Leiva-Davila — Software Engineer & AI Builder</title>
+<meta name="description" content="Stan (Aisling) Leiva-Davila — self-taught software engineer and AI builder in NYC. Native Rust systems with verifiable, signed exports, on-device AI, and full-stack apps, shipped end-to-end. Pursuit AI-Native Builder program.">
+<meta property="og:title" content="Stan (Aisling) Leiva-Davila — Software Engineer & AI Builder">
+<meta property="og:description" content="Rust systems, on-device AI, and full-stack apps — shipped end-to-end. NYC.">
 <meta property="og:type" content="website">
+<meta property="og:url" content="https://nessaisling-lab.github.io/aisling-builder-portfolio/">
+<meta property="og:image" content="https://nessaisling-lab.github.io/aisling-builder-portfolio/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Stan (Aisling) Leiva-Davila — Software Engineer & AI Builder, NYC">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0d1828">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -16,7 +26,8 @@
     --paper: #f5f2eb;
     --paper-soft: #ebe5d4;
     --navy: #0d1828;
-    --brass: #b8893c;
+    --brass: #b8893c;      /* accents, and text on navy */
+    --brass-ink: #86601f;  /* brass for text on light backgrounds (WCAG AA) */
     --ink: #14202d;
     --quiet: #5b6470;
     --rule: #d4cbb0;
@@ -32,8 +43,13 @@
     line-height: 1.55;
     -webkit-font-smoothing: antialiased;
   }
-  a { color: var(--brass); text-decoration: none; transition: color 0.15s; }
+  a { color: var(--brass-ink); text-decoration: none; transition: color 0.15s; }
   a:hover { color: var(--navy); }
+  a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px solid var(--brass); outline-offset: 3px; border-radius: 2px; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+  }
   .container { max-width: 1080px; margin: 0 auto; padding: 0 2rem; }
   img { max-width: 100%; height: auto; display: block; }
 
@@ -70,9 +86,9 @@
   }
   nav.top .links a { color: var(--quiet); text-decoration: none; }
   nav.top .links a:hover { color: var(--navy); }
-  nav.top .links .founder-link { color: var(--brass); font-weight: 500; }
+  nav.top .links .founder-link { color: var(--brass-ink); font-weight: 500; }
   nav.top .links .resume-link { color: var(--navy); font-weight: 600; border-bottom: 1px solid var(--brass); padding-bottom: 1px; }
-  nav.top .links .resume-link:hover { color: var(--brass); }
+  nav.top .links .resume-link:hover { color: var(--brass-ink); }
 
   /* Buttons */
   .btn-row { display: flex; gap: 0.8rem; flex-wrap: wrap; margin: 0 0 1.75rem; }
@@ -91,7 +107,8 @@
   .btn-primary { background: var(--navy); color: var(--paper); border: 1px solid var(--navy); }
   .btn-primary:hover { background: var(--brass); border-color: var(--brass); color: var(--navy); transform: translateY(-1px); }
   .btn-ghost { background: transparent; color: var(--navy); border: 1px solid var(--rule); }
-  .btn-ghost:hover { border-color: var(--brass); color: var(--brass); transform: translateY(-1px); }
+  .btn-ghost:hover { border-color: var(--brass); color: var(--brass-ink); transform: translateY(-1px); }
+  .btn-sm { padding: 0.55rem 0.95rem; font-size: 0.76rem; }
 
   /* Contact form */
   .contact-form { display: grid; gap: 1.1rem; max-width: 42rem; }
@@ -101,7 +118,7 @@
     font-size: 0.7rem;
     letter-spacing: 0.13em;
     text-transform: uppercase;
-    color: var(--brass);
+    color: var(--brass-ink);
     display: block;
     margin-bottom: 0.4rem;
   }
@@ -116,7 +133,7 @@
     border-radius: 2px;
     transition: border-color 0.15s;
   }
-  .contact-form input:focus, .contact-form textarea:focus { outline: none; border-color: var(--brass); }
+  .contact-form input:focus, .contact-form textarea:focus { outline: none; border-color: var(--brass); box-shadow: 0 0 0 3px rgba(184, 137, 60, 0.25); }
   .contact-form textarea { resize: vertical; min-height: 130px; line-height: 1.55; }
   .contact-form .form-status {
     font-family: 'JetBrains Mono', monospace;
@@ -148,30 +165,7 @@
   }
   .doc-card .doc-meta h3 { font-family: 'Source Serif 4', Georgia, serif; font-size: 1.25rem; color: var(--navy); margin-bottom: 0.2rem; }
   .doc-card .doc-meta p { font-size: 0.9rem; color: var(--quiet); margin: 0; }
-  .dl-menu { position: relative; flex-shrink: 0; }
-  .dl-menu > summary {
-    list-style: none; cursor: pointer;
-    background: var(--navy); color: var(--paper);
-    font-family: 'JetBrains Mono', monospace; font-size: 0.8rem;
-    padding: 0.6rem 1.1rem; border-radius: 2px; white-space: nowrap;
-    transition: background 0.15s, color 0.15s;
-  }
-  .dl-menu > summary::-webkit-details-marker { display: none; }
-  .dl-menu[open] > summary, .dl-menu > summary:hover { background: var(--brass); color: var(--navy); }
-  .dl-list {
-    position: absolute; right: 0; top: calc(100% + 0.4rem); z-index: 20;
-    background: var(--card); border: 1px solid var(--rule);
-    box-shadow: 0 18px 40px -22px rgba(13, 24, 40, 0.4);
-    min-width: 12rem; padding: 0.4rem;
-    display: grid; gap: 0.1rem;
-  }
-  .dl-list a {
-    display: flex; justify-content: space-between; gap: 1.2rem;
-    font-family: 'JetBrains Mono', monospace; font-size: 0.78rem;
-    color: var(--ink); padding: 0.5rem 0.7rem; border-radius: 2px;
-  }
-  .dl-list a:hover { background: var(--paper-soft); color: var(--navy); }
-  .dl-list a .ext { color: var(--brass); }
+  .doc-actions { display: flex; gap: 0.6rem; flex-shrink: 0; flex-wrap: wrap; justify-content: flex-end; max-width: 21rem; }
 
   /* Hero */
   .hero { padding: 5rem 0 4rem; display: grid; grid-template-columns: 1.6fr 1fr; gap: 4rem; align-items: start; }
@@ -180,7 +174,7 @@
     font-size: 0.72rem;
     letter-spacing: 0.2em;
     text-transform: uppercase;
-    color: var(--brass);
+    color: var(--brass-ink);
     margin-bottom: 1.5rem;
   }
   .hero h1 {
@@ -192,7 +186,7 @@
     color: var(--navy);
     margin-bottom: 1.25rem;
   }
-  .hero h1 .pref { font-style: italic; color: var(--brass); font-weight: 400; }
+  .hero h1 .pref { font-style: italic; color: #a47830; font-weight: 400; } /* large text: 3.5:1 on paper */
   .hero .lede {
     font-size: 1.15rem;
     color: var(--ink);
@@ -239,12 +233,13 @@
   .hero-side .photo {
     width: 100%;
     aspect-ratio: 4 / 5;
-    background: url('assets/portrait-placeholder.jpg') center top / cover;
     background-color: var(--paper-soft);
     border: 1px solid var(--rule);
     margin-bottom: 1.25rem;
     position: relative;
+    overflow: hidden;
   }
+  .hero-side .photo img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
   .hero-side .photo::after {
     content: "";
     position: absolute;
@@ -271,6 +266,7 @@
 
   /* Section heads */
   section { padding: 4rem 0; border-top: 1px solid var(--rule); }
+  section[id] { scroll-margin-top: 4.5rem; }
   .section-head {
     display: grid;
     grid-template-columns: 1fr 3fr;
@@ -281,7 +277,7 @@
   .section-head .num {
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.78rem;
-    color: var(--brass);
+    color: var(--brass-ink);
     letter-spacing: 0.15em;
   }
   .section-head h2 {
@@ -342,23 +338,11 @@
     margin-bottom: 0.8rem;
     letter-spacing: -0.01em;
   }
-  .nisaba-card .quote {
-    font-family: 'Fraunces', serif;
-    font-style: italic;
-    font-size: 1.15rem;
-    color: rgba(245, 242, 235, 0.75);
-    border-left: 3px solid var(--brass);
-    padding-left: 1.1rem;
-    margin-bottom: 1.5rem;
-  }
-  .nisaba-card .quote .cite {
-    display: block;
+  .nisaba-card .stack-line {
     font-family: 'JetBrains Mono', monospace;
-    font-size: 0.72rem;
-    color: var(--brass);
-    font-style: normal;
-    margin-top: 0.5rem;
-    letter-spacing: 0.1em;
+    font-size: 0.75rem;
+    color: rgba(245, 242, 235, 0.6);
+    margin: 1.5rem 0 0;
   }
   .nisaba-card p { color: rgba(245, 242, 235, 0.85); font-size: 0.98rem; margin-bottom: 1.2rem; line-height: 1.6; }
   .nisaba-card .stats-row {
@@ -388,18 +372,7 @@
     padding-bottom: 2px;
     margin-top: 1.75rem;
   }
-
-  /* Lineage table inside founder */
-  .lineage {
-    margin-top: 2rem;
-    border-collapse: collapse;
-    width: 100%;
-    font-size: 0.85rem;
-    color: rgba(245, 242, 235, 0.8);
-  }
-  .lineage th, .lineage td { padding: 0.55rem 0.75rem; text-align: left; border-bottom: 1px solid rgba(184, 137, 60, 0.2); }
-  .lineage th { color: var(--brass); font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 500; }
-  .lineage td strong { color: var(--paper); font-weight: 600; }
+  .nisaba-card .cta-link:hover { color: var(--paper); }
 
   /* Projects */
   .projects-grid {
@@ -422,7 +395,7 @@
     font-size: 0.7rem;
     letter-spacing: 0.15em;
     text-transform: uppercase;
-    color: var(--brass);
+    color: var(--brass-ink);
     margin-bottom: 0.6rem;
   }
   .card h3 {
@@ -440,6 +413,24 @@
     color: var(--quiet);
     margin-bottom: 0.75rem;
   }
+  .card .stats a { color: var(--ink); border-bottom: 1px dotted var(--brass); }
+  .card .stats a:hover { color: var(--brass-ink); }
+  .card .note { font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; color: var(--quiet); }
+  /* Featured cards span both columns; HouseCheck carries a screenshot beside the text */
+  .card.feature { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 220px; gap: 2rem; align-items: start; }
+  .card.feature.text-only { display: block; }
+  .card figure img { border: 1px solid var(--rule); }
+  .card ul { padding-left: 1.1rem; margin-bottom: 0.9rem; }
+  .card li { font-size: 0.92rem; line-height: 1.55; margin-bottom: 0.3rem; }
+  .card .figs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.75rem; margin: 0.4rem 0 1rem; }
+  .card .figs div { border-left: 2px solid var(--brass); padding-left: 0.6rem; font-size: 0.78rem; color: var(--quiet); line-height: 1.35; }
+  .card .figs .v { display: block; font-family: 'Source Serif 4', Georgia, serif; font-size: 1.3rem; font-weight: 600; color: var(--navy); }
+  .more-builds { margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--rule); }
+  .more-builds .label { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--brass-ink); margin-bottom: 0.8rem; }
+  .more-builds ul { padding-left: 1.1rem; margin-bottom: 1rem; }
+  .more-builds li { font-size: 0.92rem; line-height: 1.55; margin-bottom: 0.35rem; }
+  .more-builds a { color: var(--navy); border-bottom: 1px dotted var(--brass); }
+  .more-builds p { font-size: 0.92rem; }
 
   /* Experience timeline */
   .timeline .row {
@@ -463,7 +454,8 @@
     color: var(--navy);
     margin-bottom: 0.25rem;
   }
-  .timeline .role { font-style: italic; color: var(--brass); font-weight: 400; }
+  .timeline .role { font-style: italic; color: var(--brass-ink); font-weight: 400; }
+  .timeline .when .where { color: var(--brass-ink); }
   .timeline .row p { font-size: 0.95rem; margin-top: 0.5rem; line-height: 1.6; }
 
   /* Skills */
@@ -473,7 +465,7 @@
     font-size: 0.72rem;
     letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: var(--brass);
+    color: var(--brass-ink);
     margin-bottom: 0.6rem;
     padding-bottom: 0.4rem;
     border-bottom: 1px solid var(--rule);
@@ -516,12 +508,26 @@
     .hero, .projects-grid, .section-head, .skills-grid, .ed-row, footer .grid { grid-template-columns: 1fr; gap: 2rem; }
     .contact-form .field2, .contact-wrap { grid-template-columns: 1fr; }
     .doc-card { flex-direction: column; align-items: flex-start; gap: 0.9rem; }
-    .dl-list { right: auto; left: 0; }
-    .timeline .row { grid-template-columns: 1fr; }
+    .doc-actions { justify-content: flex-start; max-width: none; }
+    .timeline .row { grid-template-columns: 1fr; gap: 0.5rem; }
+    .nisaba-card { padding: 1.75rem 1.25rem 2rem; }
     .nisaba-card .stats-row { grid-template-columns: repeat(2, 1fr); }
-    nav.top .inner { flex-wrap: wrap; gap: 0.4rem 0.75rem; }
+    .card.feature { grid-template-columns: 1fr; }
+    .card.feature figure { max-width: 260px; }
+    .card .figs { grid-template-columns: repeat(2, 1fr); }
+    .container, nav.top .inner { padding-left: 1rem; padding-right: 1rem; }
+    .hero { padding: 3rem 0 3rem; }
+    .section-head { margin-bottom: 1.75rem; }
+    .section-head h2 { font-size: 1.75rem; }
+    /* One-line scrollable nav instead of a wrapped block */
+    nav.top .inner { flex-direction: column; align-items: flex-start; gap: 0.45rem; padding-top: 0.7rem; padding-bottom: 0.6rem; }
     nav.top .logo { font-size: 1rem; }
-    nav.top .links { flex-wrap: wrap; justify-content: flex-start; gap: 0.5rem 0.9rem; font-size: 0.7rem; }
+    nav.top .links {
+      width: 100%; gap: 1.1rem; font-size: 0.72rem;
+      overflow-x: auto; white-space: nowrap; scrollbar-width: none;
+      -webkit-overflow-scrolling: touch; padding-bottom: 2px;
+    }
+    nav.top .links::-webkit-scrollbar { display: none; }
   }
 </style>
 </head>
@@ -532,8 +538,8 @@
     <div class="logo">Stan (Aisling) Leiva-Davila</div>
     <div class="links">
       <a href="#about">about</a>
-      <a href="#founder" class="founder-link">⌁ founder</a>
       <a href="#projects">projects</a>
+      <a href="#founder" class="founder-link">⌁ founder</a>
       <a href="#experience">experience</a>
       <a href="#documents">documents</a>
       <a href="#contact">contact</a>
@@ -546,12 +552,12 @@
 
   <section class="hero" style="border-top:none;">
     <div>
-      <span class="founder-badge"><span class="dot"></span>Founder · Open to opportunities · NYC</span>
+      <span class="founder-badge"><span class="dot"></span>Open to opportunities · NYC</span>
       <h1>Stan <span class="pref">(Aisling)</span><br>Leiva-Davila</h1>
-      <p class="lede">Independent, self-taught <strong>AI Builder &amp; founder</strong>. Ship production-grade systems solo &mdash; a native-Rust desktop terminal in 30 days (<strong>+37% paper-trade ROI</strong>), Python AI lead-gen scrapers, and full web platforms. Specializing in AI-driven lead-generation tools and financial intelligence platforms.</p>
+      <p class="lede">Self-taught <strong>software engineer and AI builder</strong>, Rust-first with a C, C++, and Assembly foundation. I build systems whose guarantees can be checked: <strong>Ed25519-signed, hash-chained exports</strong> a stranger can verify offline, an <strong>on-device Whisper dictation app</strong> where audio never leaves the machine, a <strong>~25k-line native-Rust terminal</strong> with 132 passing tests, and the Postgres backend for a nonprofit client's gala.</p>
       <div class="btn-row">
-        <a class="btn btn-primary" href="assets/docs/resume/resume-letter.pdf" target="_blank" rel="noopener" download>Résumé · Letter ↓</a>
-        <a class="btn btn-ghost" href="assets/docs/resume/resume-legal.pdf" target="_blank" rel="noopener" download>Résumé · Legal ↓</a>
+        <a class="btn btn-primary" href="assets/docs/resume/resume-letter.pdf" target="_blank" rel="noopener" download>Résumé ↓</a>
+        <a class="btn btn-ghost" href="#projects">See projects</a>
         <a class="btn btn-ghost" href="#contact">Get in touch →</a>
       </div>
       <p class="meta">
@@ -561,13 +567,13 @@
       </p>
     </div>
     <div class="hero-side">
-      <div class="photo" aria-label="Stan (Aisling) Leiva-Davila portrait"></div>
+      <div class="photo"><img src="assets/portrait-placeholder.jpg" alt="Portrait of Stan (Aisling) Leiva-Davila" width="440" height="550" fetchpriority="high"></div>
       <div class="quickstats">
         <div class="row"><span>status</span><span class="v">open to work</span></div>
         <div class="row"><span>based</span><span class="v">NYC</span></div>
+        <div class="row"><span>stack</span><span class="v">Rust · Python · AI</span></div>
         <div class="row"><span>cohort</span><span class="v">Pursuit AI-Native</span></div>
         <div class="row"><span>founder</span><span class="v">Nisaba Capital</span></div>
-        <div class="row"><span>roi (paper)</span><span class="v">+37.06%</span></div>
       </div>
     </div>
   </section>
@@ -587,59 +593,68 @@
     </div>
   </section>
 
-</div>
-
-<section id="founder">
-  <div class="container">
-    <div class="section-head">
-      <div>
-        <p class="num">02 &middot; Founder</p>
-        <p class="sub">Nisaba Capital Charting</p>
-      </div>
-      <h2>A financial intelligence terminal &mdash; at the intersection of astrology and Wall Street.</h2>
-    </div>
-    <div class="nisaba-card">
-      <h3>Nisaba Capital Charting</h3>
-      <p class="quote">
-        "Millionaires don't use astrology. Billionaires do."
-        <span class="cite">&mdash; attributed to J.P. Morgan</span>
-      </p>
-      <p>A Bloomberg-class native-Rust desktop terminal combining rigorous quantitative data (12 APIs, 10 native Rust scrapers, 46 SQLx migrations, axum REST sidecar) with a production-tier Hellenistic astrology engine validated to sub-arcsecond precision via Swiss Ephemeris &mdash; NASA-grade JPL ephemeris data. Shipped solo in 30 days as my Pursuit capstone. The thesis isn't "astrology predicts markets." It's that the best investors in history refused to dismiss data sources just because they were unconventional. <strong>Pre-revenue, pre-incorporation by design</strong> &mdash; legal entity formation and IP filings in progress.</p>
-      <div class="stats-row">
-        <div><span class="v">+37.06%</span>paper-trade ROI</div>
-        <div><span class="v">~25k</span>lines of Rust</div>
-        <div><span class="v">132</span>tests &middot; 0 warn</div>
-        <div><span class="v">v12.2.0</span>installer shipped</div>
-      </div>
-      <a class="cta-link" href="https://nessaisling-lab.github.io/nisaba-site/" target="_blank" rel="noopener">Enter the brand site &middot; grimoire mode &rarr;</a>
-    </div>
-
-    <table class="lineage">
-      <thead>
-        <tr><th>Figure</th><th>Era</th><th>Verified Practice</th></tr>
-      </thead>
-      <tbody>
-        <tr><td><strong>J.P. Morgan</strong></td><td>1890s&ndash;1913</td><td>Kept astrologer Evangeline Adams on retainer (Adams' 1926 autobiography)</td></tr>
-        <tr><td><strong>W.D. Gann</strong></td><td>1878&ndash;1955</td><td>Founded W.D. Gann &amp; Company (1908); <em>Truth of the Stock Tape</em> praised by WSJ</td></tr>
-        <tr><td><strong>Donald Bradley</strong></td><td>1925&ndash;1974</td><td>Published <em>Stock Market Prediction</em> (1948); Bradley Siderograph still tracked today</td></tr>
-        <tr><td><strong>Arch Crawford</strong></td><td>1934&ndash;present</td><td>Predicted 1987 crash to the day; #1 market timer (<em>Hulbert</em>, 2008 &amp; 2009)</td></tr>
-      </tbody>
-    </table>
-
-  </div>
-</section>
-
-<div class="container">
-
   <section id="projects">
     <div class="section-head">
       <div>
-        <p class="num">03 &middot; Projects</p>
+        <p class="num">02 &middot; Projects</p>
         <p class="sub">Selected &middot; 2025 &rarr; 2026</p>
       </div>
-      <h2>Built end-to-end &mdash; design system to data pipeline.</h2>
+      <h2>Built end-to-end &mdash; and built to be checked.</h2>
     </div>
     <div class="projects-grid">
+
+      <div class="card feature">
+        <div>
+          <p class="tag">Rust &middot; Cryptographic integrity &middot; Live</p>
+          <h3>HouseCheck &mdash; Verifiable Building Records</h3>
+          <p>A Building Health Card for NYC apartments, scored from public city data, with an export a stranger can verify offline, without trusting me or reaching my servers. Each export carries an append-only SHA-256 hash chain with an Ed25519-signed head, and verification has three outcomes, not two: signed and intact, intact but unsigned, tampered.</p>
+          <p>While verifying it in production, I wrote an independent verifier in Python and found a forgery path: a rewritten chain, re-signed with the forger's own key, verified as intact. The fix was publishing the signing key at a stable endpoint, so a reader has something to compare against.</p>
+          <div class="figs">
+            <div><span class="v">149</span>tests &middot; clippy clean</div>
+            <div><span class="v">250</span>buildings served live</div>
+            <div><span class="v">26,343</span>violations stored</div>
+            <div><span class="v">2.51 MB</span>whole data artifact</div>
+          </div>
+          <p class="stats">Rust &middot; axum &middot; Ed25519 &middot; SHA-256 hash chain &middot; TypeScript &middot; Fly.io &middot; Vercel</p>
+          <p class="stats">Frontend contributions from <a href="https://github.com/antoninlesov" target="_blank" rel="noopener">Antonin Lesov</a></p>
+          <a href="https://housecheck-wine.vercel.app" target="_blank" rel="noopener">live demo &rarr;</a> &nbsp;&middot;&nbsp;
+          <a href="https://github.com/nessaisling-lab/housecheck" target="_blank" rel="noopener">repository &rarr;</a> &nbsp;&middot;&nbsp;
+          <a href="https://github.com/nessaisling-lab/pursuit-l2-portfolio/tree/main/cycle-4-housecheck#the-export-is-the-hard-part" target="_blank" rel="noopener">how the export works &rarr;</a>
+        </div>
+        <figure><img src="assets/projects/housecheck-health-card.webp" alt="HouseCheck Building Health Card for 88 Chauncey Street, Bedford-Stuyvesant: overall score 39 of 100, labelled Real concerns, with pillar scores Condition 0, Legal 60, Neighborhood 60, Accessibility 90." width="480" height="780" loading="lazy" decoding="async"></figure>
+      </div>
+
+      <div class="card feature text-only">
+        <p class="tag">Team of 4 &middot; Client capstone &middot; Demo Day Nov 10, 2026</p>
+        <h3>Gala Guest List Tool &mdash; for a NYC Nonprofit</h3>
+        <p>A nonprofit's annual gala ran on four disconnected sources: ticket sales, sponsorship pledges paid by check, comp tickets tracked by individual staff, and a shared spreadsheet. Guest names were retyped from sponsor emails and badges were mail-merged by hand. Our Pursuit L3 capstone replaces that with one guest list: a staff app, a private sponsor portal in four languages, and an iPad check-in app that keeps working offline.</p>
+        <p><strong>My part: backend lead and repo admin.</strong></p>
+        <ul>
+          <li>Supabase/Postgres schema, server functions, and row-level security for three staff roles, plus an append-only change log that only gala admins can read.</li>
+          <li>Sponsor links and QR e-tickets on 128-bit random tokens, stored only as SHA-256 hashes, scoped to one order or seat, and expiring.</li>
+          <li>The ticketing-platform import engine (duplicate detection, source tracking, staff corrections that survive the next import), a staff-approved email queue, and offline check-in sync where the first arrival wins.</li>
+          <li>Branch protection, gitleaks secret scanning, and a local CI fast lane that kept full checks on every PR after GitHub Actions minutes ran out.</li>
+        </ul>
+        <div class="figs">
+          <div><span class="v">150 / 189</span>merged PRs authored</div>
+          <div><span class="v">~2,375</span>automated checks per run</div>
+          <div><span class="v">787</span>access-rule checks</div>
+          <div><span class="v">3</span>apps &middot; 2 environments</div>
+        </div>
+        <p class="stats">React &middot; TypeScript &middot; Vite &middot; Tailwind &middot; Supabase (Postgres, Auth, Edge Functions) &middot; row-level security &middot; Cloudflare Pages + Access &middot; Vitest &middot; Playwright &middot; built with Claude Code</p>
+        <p class="stats">With <a href="https://github.com/wsvdesign" target="_blank" rel="noopener">Natalie Walker</a> (product lead &middot; UI/UX) &middot; <a href="https://github.com/CodeToTheCore" target="_blank" rel="noopener">Cornell Robertson</a> (backend) &middot; <a href="https://github.com/antoninlesov" target="_blank" rel="noopener">Antonin Lesov</a> (frontend &middot; UI/UX)</p>
+        <span class="note">private repository &middot; working prototype on invented data &middot; numbers as of Oct 2026</span>
+      </div>
+
+      <div class="card">
+        <p class="tag">Team &middot; Client pitch &middot; Shipped</p>
+        <h3>Excalidraw &mdash; First-Save Features</h3>
+        <p>Features built into Excalidraw's open-source codebase for a Head of Product client, aimed at one KPI: new users who save their first drawing. I built and shipped both approved features &mdash; a one-time save prompt, and a persistent &ldquo;Save to file&rdquo; button with a format picker &mdash; plus the CI pipeline and a live demo that switches between control and treatment arms. Every color pair measured to WCAG AA.</p>
+        <p class="stats">TypeScript &middot; React &middot; Vite &middot; Vitest &middot; GitHub Actions</p>
+        <p class="stats">With <a href="https://github.com/JillK83" target="_blank" rel="noopener">Jillian Krebsbach</a> &middot; <a href="https://github.com/lawrencecarrillo" target="_blank" rel="noopener">Lawrence Carrillo</a> &middot; <a href="https://github.com/CodeToTheCore" target="_blank" rel="noopener">Cornell Robertson</a></p>
+        <a href="https://nessaisling-lab.github.io/Excalidraw-L3-Cycle-2-Features-Pitch/?arm=nudge" target="_blank" rel="noopener">live demo &rarr;</a> &nbsp;&middot;&nbsp;
+        <a href="https://github.com/nessaisling-lab/Excalidraw-L3-Cycle-2-Features-Pitch" target="_blank" rel="noopener">repository &rarr;</a>
+      </div>
 
       <div class="card">
         <p class="tag">Lead &middot; Multi-Agent AI</p>
@@ -650,55 +665,65 @@
       </div>
 
       <div class="card">
-        <p class="tag">Founder &middot; Capstone</p>
-        <h3>Nisaba Capital Charting</h3>
-        <p>Native-Rust financial intelligence terminal combining Wall Street data with a Hellenistic astrology engine. Solo build, 30 days, Demo Day capstone.</p>
-        <p class="stats">Rust &middot; Iced &middot; axum &middot; SQLx &middot; Swiss Ephemeris &middot; WGSL shaders</p>
-        <a href="https://nessaisling-lab.github.io/nisaba-site/" target="_blank">brand site &rarr;</a>
-      </div>
-
-      <div class="card">
-        <p class="tag">UX/UI &middot; Pursuit Final</p>
-        <h3>Berkshire Hathaway, Reimagined</h3>
-        <p>Redesign of berkshirehathaway.com synthesizing Apple HIG + Buffett's 1996 Owner's Manual into seven paired principles.</p>
-        <p class="stats">Single-file HTML mock &middot; Figma spec &middot; WCAG 2.2 AA &middot; 8-section rationale</p>
-        <a href="https://nessaisling-lab.github.io/Final-Berkshire-Hathaway-redesign/" target="_blank">live demo &rarr;</a>
-      </div>
-
-      <div class="card">
         <p class="tag">Applied AI &middot; Voice &amp; Systems</p>
         <h3>Resona / Wisper &mdash; On-Device Voice-to-Text</h3>
-        <p>Privacy-first desktop dictation app: live streaming transcription plus file and YouTube import, all on-device via whisper.cpp &mdash; no cloud STT, no accounts. Real-time mic &rarr; VAD &rarr; Whisper pipeline, four GPU backends (CUDA/Vulkan/Metal/CPU), and an Ed25519-signed freemium tier. Co-built on a PRD/HEART process; shipped to v0.2.0-beta.18.</p>
+        <p>Privacy-first desktop dictation app: live streaming transcription plus file and YouTube import, all on-device via whisper.cpp &mdash; no cloud STT, no accounts. Real-time mic &rarr; VAD &rarr; Whisper pipeline, four GPU backends (CUDA/Vulkan/Metal/CPU), and an Ed25519-signed freemium tier. Co-built on a PRD/HEART process; shipped to v0.2.0-beta.29.</p>
         <p class="stats">Rust &middot; Tauri 2 &middot; whisper.cpp &middot; cpal &middot; React/TS &middot; CUDA/Vulkan/Metal</p>
         <a href="https://github.com/aislingld-pursuit/L2-Clone-Prodject" target="_blank" rel="noopener">repository &rarr;</a>
       </div>
 
       <div class="card">
-        <p class="tag">Systems &middot; Self-taught</p>
-        <h3>PS3 Debian + Custom Wi-Fi Driver</h3>
-        <p>Installed Debian Linux on a PlayStation 3 and wrote a custom Wi-Fi driver. Chipset documentation, low-level debugging, hardware constraints. Where I learned to bring up unfamiliar systems.</p>
-        <p class="stats">C &middot; Linux device drivers &middot; low-level &middot; self-directed</p>
-        <span style="font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:var(--quiet);">archived &middot; cover-letter detail</span>
-      </div>
-
-      <div class="card">
-        <p class="tag">Full-stack &middot; Civic tech</p>
-        <h3>Nuclear Force &mdash; Escape Router</h3>
-        <p>Interactive NYC nuclear-emergency simulator: Leaflet blast-zone modeling (4 yields), nearest-shelter finder over 17 real sites, wind-driven fallout drift, and algorithmic evacuation routing. Packaged as a native Windows app via Electron.</p>
-        <p class="stats">JavaScript &middot; Leaflet &middot; Electron &middot; pnpm monorepo &middot; Geolocation APIs</p>
-        <a href="https://github.com/aislingld-pursuit/Nightfall-Win-x64" target="_blank" rel="noopener">repository &rarr;</a>
-      </div>
-
-      <div class="card">
-        <p class="tag">Full-stack &middot; Desktop app</p>
-        <h3>NYC Showroom &mdash; Inventory Tracker</h3>
-        <p>Multi-user Windows desktop app tracking 2,730+ sample-room items in PostgreSQL (Supabase). Named accounts with bcrypt auth and role-based access, live KPI dashboard, check-in/out transactions, and a full who-did-what audit log.</p>
-        <p class="stats">PostgreSQL &middot; Supabase &middot; bcrypt &middot; role-based access &middot; desktop .exe</p>
-        <a href="https://github.com/aislingld-pursuit/Inventorix-Unified-Live-Dashboard-Part-4-of-Solutions-" target="_blank" rel="noopener">repository &rarr;</a>
+        <p class="tag">Rust &middot; Tamper-evident</p>
+        <h3>SiteAssure &mdash; Tamper-Evident OSHA Log</h3>
+        <p>An offline-first, voice-driven compliance logger for construction sites. Every entry's hash includes the one before it, so editing any historical record breaks every hash after it, and anyone holding the file can detect tampering, not only whoever runs the server. Network egress is cut to an explicit allowlist. HouseCheck's export grew out of this design.</p>
+        <p class="stats">Rust &middot; cross-platform desktop &middot; 3-OS CI matrix &middot; 18 commands, zero stubs</p>
+        <p class="stats">Grew from a Whisper Notes clone built with <a href="https://github.com/jimmyronin" target="_blank" rel="noopener">Jimmy Ong</a></p>
+        <a href="https://github.com/nessaisling-lab/L2-C2-Solution" target="_blank" rel="noopener">repository &rarr;</a>
+        <span class="note">&nbsp;&middot; build from source; no signed installer yet</span>
       </div>
 
     </div>
+
+    <div class="more-builds">
+      <p class="label">More builds</p>
+      <ul>
+        <li><a href="https://nessaisling-lab.github.io/Final-Berkshire-Hathaway-redesign/" target="_blank" rel="noopener">Berkshire Hathaway, Reimagined</a>: UX/UI redesign built on seven paired principles, WCAG 2.2 AA, with an 8-section design rationale.</li>
+        <li><a href="https://github.com/aislingld-pursuit/Nightfall-Win-x64" target="_blank" rel="noopener">Nuclear Force: Escape Router</a>: NYC nuclear-emergency simulator with blast-zone modeling, a shelter finder over 17 real sites, and evacuation routing; Leaflet + Electron.</li>
+        <li><a href="https://github.com/aislingld-pursuit/Inventorix-Unified-Live-Dashboard-Part-4-of-Solutions-" target="_blank" rel="noopener">NYC Showroom: Inventory Tracker</a>: multi-user desktop app over 2,730+ items in Postgres, with bcrypt auth, role-based access, and a who-did-what audit log.</li>
+        <li>PS3 Debian + custom Wi-Fi driver: C and Linux device drivers on a PlayStation 3; where I learned to bring up unfamiliar systems.</li>
+      </ul>
+      <p>All four Pursuit L2 builds, with workflow videos and measured numbers: <a href="https://nessaisling-lab.github.io/pursuit-l2-portfolio/" target="_blank" rel="noopener">pursuit-l2-portfolio &rarr;</a></p>
+    </div>
   </section>
+
+</div>
+
+<section id="founder">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <p class="num">03 &middot; Founder</p>
+        <p class="sub">Nisaba Capital Charting</p>
+      </div>
+      <h2>A native-Rust financial intelligence terminal, built solo in 30 days.</h2>
+    </div>
+    <div class="nisaba-card">
+      <h3>Nisaba Capital Charting</h3>
+      <p>A desktop terminal that pairs conventional market data &mdash; 12 APIs, 10 native Rust scrapers, 46 SQLx migrations, and an axum REST sidecar &mdash; with a Hellenistic astrology engine validated to sub-arcsecond precision against Swiss Ephemeris and JPL ephemeris data. Built solo and presented at Pursuit Demo Day.</p>
+      <p>The thesis isn't that astrology predicts markets. It's that strong investors don't dismiss a data source just because it's unconventional &mdash; they measure it. Pre-revenue; entity formation and IP filings in progress.</p>
+      <div class="stats-row">
+        <div><span class="v">~25k</span>lines of Rust</div>
+        <div><span class="v">132</span>tests &middot; 0 warnings</div>
+        <div><span class="v">v12.2.0</span>Windows installer</div>
+        <div><span class="v">+37.06%</span>paper-trade ROI</div>
+      </div>
+      <p class="stack-line">Rust &middot; Iced &middot; axum &middot; SQLx &middot; Swiss Ephemeris &middot; WGSL shaders</p>
+      <a class="cta-link" href="https://nessaisling-lab.github.io/nisaba-site/" target="_blank" rel="noopener">Visit the Nisaba brand site &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<div class="container">
 
   <section id="experience">
     <div class="section-head">
@@ -712,8 +737,19 @@
 
       <div class="row">
         <div class="when">
+          Sep 2026 &ndash; Present<br>
+          <span class="where">New York, NY</span>
+        </div>
+        <div>
+          <h4>Pursuit Client Capstone (NYC Nonprofit) &middot; <span class="role">Backend Lead &amp; Repo Admin</span></h4>
+          <p>Gala guest list, private sponsor portal, and offline-first iPad check-in for a nonprofit, on a team of four. Led the Postgres backend (row-level security for three staff roles, an append-only change log, hashed single-purpose tokens) and authored 150 of the team's 189 merged pull requests. Demo Day: November 10, 2026.</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="when">
           Apr 2026 &ndash; Present<br>
-          <span style="color:var(--brass);">New York, NY</span>
+          <span class="where">New York, NY</span>
         </div>
         <div>
           <h4>Nisaba Capital Charting &middot; <span class="role">Founder &amp; Builder</span></h4>
@@ -724,7 +760,7 @@
       <div class="row">
         <div class="when">
           Sep 2025 &ndash; Mar 2026<br>
-          <span style="color:var(--brass);">New York, NY</span>
+          <span class="where">New York, NY</span>
         </div>
         <div>
           <h4>Architechne &middot; <span class="role">Data Analyst &amp; Partnership Coordinator</span></h4>
@@ -735,7 +771,7 @@
       <div class="row">
         <div class="when">
           Jul 2017 &ndash; Jan 2020<br>
-          <span style="color:var(--brass);">Flushing, NY</span>
+          <span class="where">Flushing, NY</span>
         </div>
         <div>
           <h4>Airbnb &middot; <span class="role">Self-Employed Property Manager (Owner-Operator)</span></h4>
@@ -760,7 +796,7 @@
         <h4>Pursuit AI-Native Builder</h4>
         <div class="when">Mar 2025 &ndash; Present &middot; LIC, NY</div>
       </div>
-      <p>Inaugural cohort. 600+ hour, in-person, 7-month intensive shipping production-grade AI products end-to-end. Demo Day capstone (Nisaba) presented May 2026 to Pursuit staff + Fortune 500 industry reviewer.</p>
+      <p>Inaugural cohort. 600+ hour, in-person, 7-month intensive shipping production-grade AI products end-to-end. Presented Nisaba at Demo Day in May 2026 to Pursuit staff and a Fortune 500 industry reviewer; the L3 client capstone presents on November 10, 2026.</p>
     </div>
     <div class="ed-row">
       <div class="left">
@@ -789,13 +825,15 @@
     <div class="skills-grid">
       <div class="col">
         <h4>Languages &amp; Frameworks</h4>
-        <p>Rust (Iced, axum, SQLx), Python, C, C++, Assembly, JavaScript, HTML/CSS, SQL (PostgreSQL, MySQL), REST + LLM APIs, WGSL shaders.</p>
+        <p>Rust (axum, SQLx, Tauri 2, Dioxus, Iced), Python, C, C++, Assembly, TypeScript/React, HTML/CSS, SQL (PostgreSQL, MySQL), REST + LLM APIs, WGSL shaders.</p>
+        <h4>Security &amp; Integrity</h4>
+        <p>Ed25519 signatures, SHA-256 hash chains, Postgres row-level security, hashed bearer tokens, gitleaks secret scanning, SSRF hardening, egress allowlists.</p>
         <h4>AI Tooling</h4>
-        <p>Claude Code, Cursor, Anthropic + OpenAI APIs, RAG, prompt engineering, agentic workflows, Swiss Ephemeris.</p>
+        <p>Claude Code, Cursor, Anthropic + OpenAI APIs, MCP, whisper.cpp, RAG, agentic workflows, Swiss Ephemeris.</p>
       </div>
       <div class="col">
         <h4>Systems &amp; Embedded</h4>
-        <p>Linux, Windows, Git/GitHub, Linux device drivers, hardware bring-up, EOL system rehab, schematics reading, custom Wi-Fi driver development.</p>
+        <p>Linux, Windows, GitHub administration (branch protection, CI), Supabase, Cloudflare Pages + Access, Fly.io, Linux device drivers, hardware bring-up, EOL system rehab, schematics reading.</p>
         <h4>IT &amp; Operations</h4>
         <p>CompTIA A+, Google IT Support, ServiceNow ITSM, LAN/WLAN/WAN networking, project &amp; financial management, customer relations.</p>
       </div>
@@ -806,45 +844,33 @@
     <div class="section-head">
       <div>
         <p class="num">07 &middot; Documents</p>
-        <p class="sub">One place, every format</p>
+        <p class="sub">PDF or editable</p>
       </div>
-      <h2>Download hub &mdash; grab any document in the format you need.</h2>
+      <h2>Résumé, cover letter, and writing samples.</h2>
     </div>
     <div class="doc-list">
       <div class="doc-card">
         <div class="doc-meta">
           <h3>Résumé</h3>
-          <p>One page, ATS-friendly &middot; AI Builder &amp; Founder framing.</p>
+          <p>One page, ATS-friendly &middot; US Letter or Legal.</p>
         </div>
-        <details class="dl-menu">
-          <summary>Download &#9662;</summary>
-          <div class="dl-list">
-            <a href="assets/docs/resume/resume-letter.pdf" download>PDF <span class="ext">Letter</span></a>
-            <a href="assets/docs/resume/resume-legal.pdf" download>PDF <span class="ext">Legal</span></a>
-            <a href="assets/docs/resume/resume.docx" download>Word <span class="ext">.docx</span></a>
-            <a href="assets/docs/resume/resume.txt" download>Text <span class="ext">.txt</span></a>
-            <a href="assets/docs/resume/resume.md" download>Markdown <span class="ext">.md</span></a>
-            <a href="assets/docs/resume/resume.tex" download>LaTeX <span class="ext">.tex</span></a>
-            <a href="assets/docs/resume/resume.html" download>HTML <span class="ext">.html</span></a>
-          </div>
-        </details>
+        <div class="doc-actions">
+          <a class="btn btn-primary btn-sm" href="assets/docs/resume/resume-letter.pdf" download>PDF · Letter ↓</a>
+          <a class="btn btn-primary btn-sm" href="assets/docs/resume/resume-legal.pdf" download>PDF · Legal ↓</a>
+          <a class="btn btn-ghost btn-sm" href="assets/docs/resume/resume.docx" download>Word · Letter ↓</a>
+          <a class="btn btn-ghost btn-sm" href="assets/docs/resume/resume-legal.docx" download>Word · Legal ↓</a>
+        </div>
       </div>
 
       <div class="doc-card">
         <div class="doc-meta">
           <h3>Cover Letter</h3>
-          <p>Universal cover letter &middot; AI Builder framing.</p>
+          <p>General-purpose cover letter.</p>
         </div>
-        <details class="dl-menu">
-          <summary>Download &#9662;</summary>
-          <div class="dl-list">
-            <a href="assets/docs/cover-letter/cover-letter.pdf" download>PDF <span class="ext">.pdf</span></a>
-            <a href="assets/docs/cover-letter/cover-letter.docx" download>Word <span class="ext">.docx</span></a>
-            <a href="assets/docs/cover-letter/cover-letter.txt" download>Text <span class="ext">.txt</span></a>
-            <a href="assets/docs/cover-letter/cover-letter.md" download>Markdown <span class="ext">.md</span></a>
-            <a href="assets/docs/cover-letter/cover-letter.html" download>HTML <span class="ext">.html</span></a>
-          </div>
-        </details>
+        <div class="doc-actions">
+          <a class="btn btn-primary btn-sm" href="assets/docs/cover-letter/cover-letter.pdf" download>PDF ↓</a>
+          <a class="btn btn-ghost btn-sm" href="assets/docs/cover-letter/cover-letter.docx" download>Word ↓</a>
+        </div>
       </div>
 
       <div class="doc-card">
@@ -852,16 +878,10 @@
           <h3>Berkshire Redesign &mdash; Design Rationale</h3>
           <p>8-section written rationale &middot; Apple HIG + Buffett's Owner's Manual.</p>
         </div>
-        <details class="dl-menu">
-          <summary>Download &#9662;</summary>
-          <div class="dl-list">
-            <a href="assets/docs/berkshire-rationale/berkshire-rationale.pdf" download>PDF <span class="ext">.pdf</span></a>
-            <a href="assets/docs/berkshire-rationale/berkshire-rationale.docx" download>Word <span class="ext">.docx</span></a>
-            <a href="assets/docs/berkshire-rationale/berkshire-rationale.txt" download>Text <span class="ext">.txt</span></a>
-            <a href="assets/docs/berkshire-rationale/berkshire-rationale.md" download>Markdown <span class="ext">.md</span></a>
-            <a href="assets/docs/berkshire-rationale/berkshire-rationale.html" download>HTML <span class="ext">.html</span></a>
-          </div>
-        </details>
+        <div class="doc-actions">
+          <a class="btn btn-primary btn-sm" href="assets/docs/berkshire-rationale/berkshire-rationale.pdf" download>PDF ↓</a>
+          <a class="btn btn-ghost btn-sm" href="assets/docs/berkshire-rationale/berkshire-rationale.docx" download>Word ↓</a>
+        </div>
       </div>
 
       <div class="doc-card">
@@ -869,16 +889,10 @@
           <h3>AI &amp; the Creator Economy &mdash; Impact Report</h3>
           <p>Research report on AI's impact on creators.</p>
         </div>
-        <details class="dl-menu">
-          <summary>Download &#9662;</summary>
-          <div class="dl-list">
-            <a href="assets/docs/ai-creator-impact/ai-creator-impact.pdf" download>PDF <span class="ext">.pdf</span></a>
-            <a href="assets/docs/ai-creator-impact/ai-creator-impact.html" download>HTML <span class="ext">.html</span></a>
-            <a href="assets/docs/ai-creator-impact/ai-creator-impact.docx" download>Word <span class="ext">.docx</span></a>
-            <a href="assets/docs/ai-creator-impact/ai-creator-impact.txt" download>Text <span class="ext">.txt</span></a>
-            <a href="assets/docs/ai-creator-impact/ai-creator-impact.md" download>Markdown <span class="ext">.md</span></a>
-          </div>
-        </details>
+        <div class="doc-actions">
+          <a class="btn btn-primary btn-sm" href="assets/docs/ai-creator-impact/ai-creator-impact.pdf" download>PDF ↓</a>
+          <a class="btn btn-ghost btn-sm" href="assets/docs/ai-creator-impact/ai-creator-impact.docx" download>Word ↓</a>
+        </div>
       </div>
 
       <div class="doc-card">
@@ -886,13 +900,10 @@
           <h3>WRC AI Presentation</h3>
           <p>Slide deck &middot; AI strategy.</p>
         </div>
-        <details class="dl-menu">
-          <summary>Download &#9662;</summary>
-          <div class="dl-list">
-            <a href="assets/docs/wrc-ai-deck/wrc-ai-deck.pdf" download>PDF <span class="ext">.pdf</span></a>
-            <a href="assets/docs/wrc-ai-deck/wrc-ai-deck.pptx" download>PowerPoint <span class="ext">.pptx</span></a>
-          </div>
-        </details>
+        <div class="doc-actions">
+          <a class="btn btn-primary btn-sm" href="assets/docs/wrc-ai-deck/wrc-ai-deck.pdf" download>PDF ↓</a>
+          <a class="btn btn-ghost btn-sm" href="assets/docs/wrc-ai-deck/wrc-ai-deck.pptx" download>PowerPoint ↓</a>
+        </div>
       </div>
     </div>
   </section>

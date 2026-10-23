@@ -1,56 +1,58 @@
 # Stan (Aisling) Leiva-Davila
 
-AI Builder & Founder · New York, NY
+Software Engineer & AI-Native Builder · New York, NY
 
 ness.aisling@gmail.com · aisling.ld@pursuit.org · 201-471-1178
 [linkedin.com/in/stan-leiva-davila](https://www.linkedin.com/in/stan-leiva-davila/) · [github.com/nessaisling-lab](https://github.com/nessaisling-lab) · [github.com/aislingld-pursuit](https://github.com/aislingld-pursuit)
 
 ## Professional Summary
 
-Self-taught AI Builder and founder who ships production-grade systems solo and on small teams. Built a native-Rust financial-intelligence terminal (+37% paper-trade ROI) and a privacy-first, on-device voice-to-text app — both cross-platform desktop products. Hardware-fluent (Aircraft A&P coursework, CompTIA A+) with end-to-end ownership from systems and data pipelines through UI and go-to-market. Inaugural cohort of Pursuit's AI-Native Builder program.
+Self-taught software engineer and AI-native builder, Rust-first with a C, C++, and Assembly foundation. I build systems whose guarantees can be checked: Ed25519-signed, hash-chained exports with an independent verifier; on-device speech-to-text where audio never leaves the machine; Postgres row-level security for a nonprofit client. I ship end-to-end, solo and on small teams, with Claude Code. Inaugural cohort, Pursuit AI-Native Builder.
 
 ## Experience
+
+**Pursuit Client Capstone (NYC Nonprofit) — Backend Lead & Repo Admin** · New York, NY · Sep 2026 – Present
+*Gala guest list, private sponsor portal, and offline-first iPad check-in (React + TypeScript on Supabase); team of 4.*
+
+- Led the Postgres backend: row-level security for 3 staff roles, an append-only change log, and sponsor links and QR e-tickets on 128-bit random tokens stored only as SHA-256 hashes; 787 access-rule checks in ~2,375 per run.
+- As repo admin, authored 150 of the team's 189 merged PRs, enforced branch protection and gitleaks secret scanning, and built a local CI fast lane that kept full checks on every PR after GitHub Actions minutes ran out.
 
 **Nisaba Capital Charting — Founder & Builder** · New York, NY · Apr 2026 – Present
 *Native-Rust financial-intelligence desktop terminal merging market data with a Hellenistic astrology engine.*
 
-- Built a ~25k-line Rust application solo in 30 days — 12 data APIs, 10 native scrapers, 46 SQLx migrations, an axum REST sidecar, and a Swiss Ephemeris engine validated to sub-arcsecond precision; 132 tests, zero warnings, shipped a v12.2.0 Windows installer.
-- Reached +37.06% verified paper-trade ROI; presented at Pursuit Demo Day to staff, fellow Builders, and a Fortune 500 reviewer (legal entity formation and IP filings in progress).
+- Built a ~25k-line Rust app solo in 30 days: 12 data APIs, 10 native scrapers, 46 SQLx migrations, an axum sidecar, a sub-arcsecond ephemeris engine; 132 tests, zero warnings, Windows installer.
+- Reached +37.06% verified paper-trade ROI; presented at Pursuit Demo Day to staff, fellow Builders, and a Fortune 500 reviewer.
 
 **Architechne — Data Analyst & Partnership Coordinator (1099)** · New York, NY · Sep 2025 – Mar 2026
 *Sourced luxury interior-designer, architect, and residential-developer leads for a NYC design partnership business.*
 
-- Built a Python + AI web scraper across NYC tri-state directories and designed a MySQL territory database, cutting manual research time by ~50%.
+- Built a Python + AI web scraper over NYC tri-state directories and a MySQL territory database, cutting manual research ~50%.
 
 **Airbnb — Self-Employed Property Manager (Owner-Operator)** · Flushing, NY · Jul 2017 – Jan 2020
-*Ran a short-term-rental business solo for 2.5+ years.*
-
-- Owned listing, marketing, bookkeeping, vendor coordination, and guest relations end-to-end — the same full-ownership discipline applied to software systems today.
 
 ## Technical Projects
+
+**HouseCheck — Verifiable Building Records for NYC Renters** · 2026 · [repo](https://github.com/nessaisling-lab/housecheck)
+*Building Health Card scored from public NYC data, with an export a stranger can verify offline. Live; 149 tests.*
+
+- Built a Rust/axum service whose exports carry an append-only SHA-256 hash chain with an Ed25519-signed head and three verification outcomes (signed and intact, intact but unsigned, tampered), with source dataset IDs inside the signed region.
+- Wrote an independent Python verifier and found a forgery path: a rewritten chain re-signed with a forger's own key verified as intact. Closed it by publishing the signing key at a stable endpoint.
 
 **Ziqpu — Multi-Agent Astrology Synastry Engine** · 2026 · [repo](https://github.com/nessaisling-lab/Ziqpu-L2-Cycle-3)
 *Scores a natal chart against the chart of anything with a date of origin (v1: stocks by IPO); reflection, not advice.*
 
-- Led a 3-person team building a Rust workspace with two visible agents — a measurer that computes exact aspects from JPL-validated ephemeris and an interpreter that reads them back — plus a read-only axum sidecar, an MCP server, and a Dioxus desktop UI.
+- Led a 3-person team on a Rust workspace: a measurer agent and an interpreter agent, a read-only axum sidecar, an MCP server, and a Dioxus UI.
 
 **Resona / Wisper — Privacy-First On-Device Voice-to-Text** · 2026 · [repo](https://github.com/aislingld-pursuit/L2-Clone-Prodject)
 *Cross-platform desktop dictation app: live streaming + file/YouTube transcription, 100% on-device via whisper.cpp.*
 
-- Built a real-time pipeline (mic → cpal → energy-VAD → incremental Whisper) plus file and YouTube import with zero cloud STT and no accounts; four selectable GPU backends (CUDA / Vulkan / Metal / CPU) from one Tauri 2 + Rust + React codebase.
-- Designed an Ed25519-signed-license freemium model with correct client-vs-server entitlement gating; hardened SSRF and unsafe-export issues (SEC-001/002); co-developed on a PRD + HEART process and shipped v0.2.0-beta.18 across Windows, macOS, and Linux.
-
-**Berkshire Hathaway, Reimagined — UX/UI Redesign** · 2025 · [repo](https://github.com/nessaisling-lab/Final-Berkshire-Hathaway-redesign)
-*Conceptual redesign of berkshirehathaway.com synthesizing Apple's HIG with Buffett's 1996 Owner's Manual.*
-
-- Built a single-file HTML mockup and Figma spec organized around seven paired design principles, meeting WCAG 2.2 AA accessibility with an 8-section written design rationale.
+- Real-time pipeline (cpal → energy-VAD → incremental Whisper) with zero cloud STT and no accounts; CUDA/Vulkan/Metal/CPU backends from one Tauri 2 + Rust codebase.
+- Ed25519-signed licenses with client-vs-server entitlement gating; fixed SSRF and unsafe-export issues; shipped v0.2.0-beta.29 on Windows, macOS, Linux.
 
 ## Education
 
 **Pursuit — AI-Native Builder (Inaugural Cohort)** · Long Island City, NY · Mar 2025 – Present
-*600+ hour, 7-month in-person intensive shipping production-grade AI products end-to-end.*
-
-- Shipped 10+ end-to-end builds and wrote 8+ PRDs; delivered a capstone (Nisaba) at Demo Day to Pursuit staff and a Fortune 500 industry reviewer.
+*600+ hour, 7-month in-person intensive: 10+ end-to-end builds, 8+ PRDs; client capstone Demo Day Nov. 10, 2026.*
 
 **Per Scholas — IT Support** · Graduated Oct 2025 — CompTIA A+, Google IT Support, ServiceNow ITSM
 
@@ -58,6 +60,7 @@ Self-taught AI Builder and founder who ships production-grade systems solo and o
 
 ## Skills & Tools
 
-- **Languages & Frameworks:** Rust (Iced, axum, SQLx, Tauri 2, whisper-rs, cpal), Python, C, C++, Assembly, JavaScript/TypeScript, React, Node, HTML/CSS, SQL (PostgreSQL, MySQL), REST + LLM APIs, WGSL
-- **AI & Tooling:** Claude Code, Cursor, Anthropic + OpenAI APIs, whisper.cpp, RAG, prompt engineering, agentic workflows, Swiss Ephemeris
-- **Systems & Ops:** Linux, Windows, Git/GitHub, GPU backends (CUDA/Vulkan/Metal), Linux device drivers, hardware bring-up, CompTIA A+, LAN/WLAN networking
+- **Languages & Frameworks:** Rust (axum, SQLx, Tauri 2, Dioxus, Iced), Python, C, C++, Assembly, TypeScript/React, SQL (Postgres, MySQL)
+- **Security & Integrity:** Ed25519 signatures, SHA-256 hash chains, Postgres row-level security, hashed bearer tokens, gitleaks, SSRF hardening
+- **AI & Tooling:** Claude Code, Cursor, Anthropic + OpenAI APIs, MCP, whisper.cpp, RAG, agentic workflows
+- **Systems & Ops:** Linux, Windows, GitHub admin (branch protection, CI), Supabase, Cloudflare Pages + Access, Fly.io, CUDA/Vulkan/Metal
