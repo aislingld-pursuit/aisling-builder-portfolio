@@ -432,18 +432,36 @@ fn Case(root: String, i: usize) -> Element {
                 div { class: "case-body",
                     if let Some(m) = &b.media {
                         figure { class: if m.w > m.h { "media wide" } else { "media tall" },
-                            video {
-                                src: "{root}{m.video}",
-                                poster: "{root}{m.poster}",
-                                width: "{m.w}",
-                                height: "{m.h}",
-                                controls: true,
-                                muted: true,
-                                "loop": "true",
-                                playsinline: true,
-                                preload: "none",
-                                "aria-label": "{m.alt}",
-                                "data-autoplay": "true",
+                            if m.autoplay {
+                                // A silent build loop: plays while on screen, if motion is allowed.
+                                video {
+                                    src: "{root}{m.video}",
+                                    poster: "{root}{m.poster}",
+                                    width: "{m.w}",
+                                    height: "{m.h}",
+                                    controls: true,
+                                    muted: true,
+                                    "loop": "true",
+                                    playsinline: true,
+                                    preload: "none",
+                                    "aria-label": "{m.alt}",
+                                    "data-autoplay": "true",
+                                }
+                            } else {
+                                // A narrated walkthrough: never autoplays, captions on by default.
+                                video {
+                                    src: "{root}{m.video}",
+                                    poster: "{root}{m.poster}",
+                                    width: "{m.w}",
+                                    height: "{m.h}",
+                                    controls: true,
+                                    playsinline: true,
+                                    preload: "none",
+                                    "aria-label": "{m.alt}",
+                                    if let Some(c) = m.captions {
+                                        track { kind: "captions", src: "{root}{c}", srclang: "en", label: "English", default: true }
+                                    }
+                                }
                             }
                             figcaption { "fig. 1 · {m.alt}" }
                         }

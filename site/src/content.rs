@@ -39,6 +39,10 @@ pub struct Media {
     pub alt: &'static str,
     pub w: u32,
     pub h: u32,
+    /// WebVTT captions, for recordings with narration.
+    pub captions: Option<&'static str>,
+    /// Silent loops play while on screen; narrated walkthroughs wait for the reader.
+    pub autoplay: bool,
 }
 
 #[derive(PartialEq, Clone, Copy)]
@@ -110,6 +114,8 @@ pub const BUILDS: &[Build] = &[
             alt: "HouseCheck: searching an address through to a Building Health Card",
             w: 440,
             h: 714,
+            captions: None,
+            autoplay: true,
         }),
         sections: &[
             Section {
@@ -207,7 +213,16 @@ pub const BUILDS: &[Build] = &[
             "Claude Code",
         ],
         links: &[],
-        media: None,
+        media: Some(Media {
+            video: "assets/work/gala-guest-list/walkthrough.mp4",
+            poster: "assets/work/gala-guest-list/walkthrough-poster.jpg",
+            alt: "Narrated walkthrough: one gala from setup to the thank-you notes, across the staff \
+                  app, the sponsor portal and the iPad check-in, on invented data",
+            w: 1280,
+            h: 720,
+            captions: Some("assets/work/gala-guest-list/walkthrough.en.vtt"),
+            autoplay: false,
+        }),
         sections: &[
             Section {
                 title: "What it is",
@@ -272,8 +287,9 @@ pub const BUILDS: &[Build] = &[
         ],
         verify: None,
         note: Some(
-            "Screens are frames from the team's walkthrough, on invented data, with the client's \
-             name and logo pixelated. The full narrated walkthrough is available on request.",
+            "Re-recorded for this portfolio on a private local copy with invented data: the app's \
+             code is unchanged, and the client's name and logo are replaced at recording time with a \
+             neutral stand-in. Narrated with local text-to-speech voices; made with Claude Code.",
         ),
         featured: true,
     },
@@ -309,6 +325,8 @@ pub const BUILDS: &[Build] = &[
             alt: "Resona: checking the machine and choosing a speech model size",
             w: 500,
             h: 940,
+            captions: None,
+            autoplay: true,
         }),
         sections: &[
             Section {
@@ -438,6 +456,8 @@ pub const BUILDS: &[Build] = &[
             alt: "SiteAssure: daily log, records, trade-risk dashboard and audit trail",
             w: 436,
             h: 918,
+            captions: None,
+            autoplay: true,
         }),
         sections: &[
             Section {
@@ -499,6 +519,8 @@ pub const BUILDS: &[Build] = &[
             alt: "Ziqpu: benchmarking the machine and recommending a local model",
             w: 1100,
             h: 798,
+            captions: None,
+            autoplay: true,
         }),
         sections: &[
             Section {
@@ -609,23 +631,23 @@ pub struct Still {
     pub caption: &'static str,
 }
 
-/// The capstone stills are frames from the team's walkthrough recording, on invented
-/// data, with the client's name and logo pixelated (every OCR hit plus the logo
-/// regions, then re-checked by OCR). The e-ticket email frame was left out: its body
-/// names the client in text too small to redact reliably.
+/// The capstone stills are frames from the portfolio re-recording of the walkthrough:
+/// a private local copy on invented data, with the client's identity swapped for a
+/// neutral stand-in at recording time. Every frame and the narration were OCR- and
+/// Whisper-checked for the client's name before publishing (zero hits).
 pub const GALLERY: &[Still] = &[
     Still {
         slug: "gala-guest-list",
         src: "assets/work/gala-guest-list/06-record-a-payment.webp",
         alt: "Staff app: recording a $12,500 check from an invented sponsor, Acme Community \
-              Partners, with the check number and deposit date. Client name and logo pixelated.",
+              Partners, with the check number and deposit date.",
         caption: "A sponsor's check is recorded: amount, check number, deposit date. No card or bank details, ever.",
     },
     Still {
         slug: "gala-guest-list",
         src: "assets/work/gala-guest-list/09-sponsor-portal.webp",
         alt: "Sponsor portal: a sponsor's private page with open guest seats to fill and a \
-              balance of $12,500 of $25,000. Client logo pixelated.",
+              balance of $12,500 of $25,000.",
         caption: "The sponsor's private link: name your guests, see what's paid. No account needed.",
     },
     Still {
@@ -865,6 +887,7 @@ mod tests {
             if let Some(m) = &b.media {
                 paths.push(m.video);
                 paths.push(m.poster);
+                paths.extend(m.captions);
             }
         }
         paths.extend(GALLERY.iter().map(|s| s.src));
