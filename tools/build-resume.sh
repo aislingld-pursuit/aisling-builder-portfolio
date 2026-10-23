@@ -1,11 +1,12 @@
 #!/usr/bin/env bash
 # Regenerate every résumé format for the Documents hub.
-# Sources of truth:
-#   assets/docs/resume/resume.md   -> txt, html  (via pandoc)
-#   assets/docs/resume/resume.tex  -> letter + legal PDF (via pdflatex)
-#   tools/build-resume-docx.js     -> letter + legal Word, laid out to match the PDFs (via node + docx)
-# Requires: pandoc, pdflatex (MiKTeX/TeX Live), node + the `docx` npm package.
-# The Word files are NOT made with pandoc: pandoc's default styling does not match the PDF.
+#
+# One source of truth: site/src/resume.rs. Edit the résumé there, then run this.
+#   cargo (site/)  -> resume.tex, resume.md, resume.json  (+ the site, including /resume/)
+#   pandoc         -> resume.txt, resume.html             (from resume.md)
+#   node + docx    -> resume.docx, resume-legal.docx      (from resume.json, laid out like the PDF)
+#   pdflatex       -> resume-letter.pdf, resume-legal.pdf (from resume.tex)
+# Requires: cargo, pandoc, node + the `docx` npm package, pdflatex (MiKTeX/TeX Live).
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
@@ -13,6 +14,9 @@ D="$ROOT/assets/docs/resume"
 
 PANDOC="$(command -v pandoc || echo '/c/Program Files/Pandoc/pandoc.exe')"
 PDFLATEX="$(command -v pdflatex || echo '/c/Program Files/MiKTeX/miktex/bin/x64/pdflatex.exe')"
+
+echo "==> sources from site/src/resume.rs"
+cargo run --quiet --manifest-path "$ROOT/site/Cargo.toml" --locked
 
 echo "==> pandoc formats from resume.md"
 "$PANDOC" "$D/resume.md" -t plain -o "$D/resume.txt"
@@ -32,6 +36,13 @@ sed 's/\[letterpaper,10pt\]/[legalpaper,10pt]/' "$D/resume.tex" > "$TMP/resume-l
 cp "$TMP/resume-letter.pdf" "$D/resume-letter.pdf"
 cp "$TMP/resume-legal.pdf"  "$D/resume-legal.pdf"
 rm -rf "$TMP"
+
+# career-ops reads the same Markdown as its cv.md. Only when the hub layout is present.
+CAREER_OPS="$ROOT/../career-ops"
+if [ -d "$CAREER_OPS" ]; then
+  cp "$D/resume.md" "$CAREER_OPS/cv.md"
+  echo "==> refreshed $CAREER_OPS/cv.md"
+fi
 
 echo "==> done. Formats in $D:"
 ls -1 "$D"

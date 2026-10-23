@@ -177,10 +177,13 @@ vertical-align: middle;
 <h1 class="title">Stan (Aisling) Leiva-Davila — Resume</h1>
 </header>
 <h1 id="stan-aisling-leiva-davila">Stan (Aisling) Leiva-Davila</h1>
-<p>Software Engineer &amp; AI-Native Builder · New York, NY</p>
-<p>ness.aisling@gmail.com · aisling.ld@pursuit.org · 201-471-1178 <a href="https://www.linkedin.com/in/stan-leiva-davila/">linkedin.com/in/stan-leiva-davila</a>
-· <a href="https://github.com/nessaisling-lab">github.com/nessaisling-lab</a>
-· <a href="https://github.com/aislingld-pursuit">github.com/aislingld-pursuit</a></p>
+<p><strong>Location:</strong> New York, NY <strong>Email:</strong>
+ness.aisling@gmail.com <strong>Phone:</strong> 201-471-1178
+<strong>LinkedIn:</strong> linkedin.com/in/stan-leiva-davila
+<strong>Portfolio:</strong>
+nessaisling-lab.github.io/aisling-builder-portfolio
+<strong>GitHub:</strong> github.com/nessaisling-lab ·
+github.com/aislingld-pursuit</p>
 <h2 id="professional-summary">Professional Summary</h2>
 <p>Self-taught software engineer and AI-native builder, Rust-first with
 a C, C++, and Assembly foundation. I build systems whose guarantees can
@@ -189,87 +192,88 @@ verifier; on-device speech-to-text where audio never leaves the machine;
 Postgres row-level security for a nonprofit client. I ship end-to-end,
 solo and on small teams, with Claude Code. Inaugural cohort, Pursuit
 AI-Native Builder.</p>
-<h2 id="experience">Experience</h2>
-<p><strong>Pursuit Client Capstone (NYC Nonprofit) — Backend Lead &amp;
-Repo Admin</strong> · New York, NY · Sep 2026 – Present <em>Gala guest
-list, private sponsor portal, and offline-first iPad check-in (React +
-TypeScript on Supabase); team of 4.</em></p>
+<h2 id="work-experience">Work Experience</h2>
+<h3 id="pursuit-client-capstone-nyc-nonprofit-new-york-ny">Pursuit
+Client Capstone (NYC Nonprofit) – New York, NY</h3>
+<p><strong>Backend Lead &amp; Repo Admin</strong> Sep. 2026 –
+Present</p>
 <ul>
+<li>Gala guest list, private sponsor portal, and offline-first iPad
+check-in (React + TypeScript on Supabase); team of 4</li>
 <li>Led the Postgres backend: row-level security for 3 staff roles, an
 append-only change log, and sponsor links and QR e-tickets on 128-bit
 random tokens stored only as SHA-256 hashes; 787 access-rule checks in
-~2,375 per run.</li>
+~2,375 per run</li>
 <li>As repo admin, authored 150 of the team’s 189 merged PRs, enforced
 branch protection and gitleaks secret scanning, and built a local CI
 fast lane that kept full checks on every PR after GitHub Actions minutes
-ran out.</li>
+ran out</li>
 </ul>
-<p><strong>Nisaba Capital Charting — Founder &amp; Builder</strong> ·
-New York, NY · Apr 2026 – Present <em>Native-Rust financial-intelligence
-desktop terminal merging market data with a Hellenistic astrology
-engine.</em></p>
+<h3 id="nisaba-capital-charting-new-york-ny">Nisaba Capital Charting –
+New York, NY</h3>
+<p><strong>Founder &amp; Builder</strong> Apr. 2026 – Present</p>
 <ul>
+<li>Native-Rust financial-intelligence desktop terminal merging market
+data with a Hellenistic astrology engine</li>
 <li>Built a ~25k-line Rust app solo in 30 days: 12 data APIs, 10 native
 scrapers, 46 SQLx migrations, an axum sidecar, a sub-arcsecond ephemeris
-engine; 132 tests, zero warnings, Windows installer.</li>
+engine; 132 tests, zero warnings, Windows installer</li>
 <li>Reached +37.06% verified paper-trade ROI; presented at Pursuit Demo
-Day to staff, fellow Builders, and a Fortune 500 reviewer.</li>
+Day to staff, fellow Builders, and a Fortune 500 reviewer</li>
 </ul>
-<p><strong>Architechne — Data Analyst &amp; Partnership Coordinator
-(1099)</strong> · New York, NY · Sep 2025 – Mar 2026 <em>Sourced luxury
-interior-designer, architect, and residential-developer leads for a NYC
-design partnership business.</em></p>
+<h3 id="architechne-new-york-ny">Architechne – New York, NY</h3>
+<p><strong>Data Analyst &amp; Partnership Coordinator (1099)</strong>
+Sep. 2025 – Mar. 2026</p>
 <ul>
+<li>Sourced luxury interior-designer, architect, and
+residential-developer leads for a NYC design partnership business</li>
 <li>Built a Python + AI web scraper over NYC tri-state directories and a
-MySQL territory database, cutting manual research ~50%.</li>
+MySQL territory database, cutting manual research ~50%</li>
 </ul>
-<p><strong>Airbnb — Self-Employed Property Manager
-(Owner-Operator)</strong> · Flushing, NY · Jul 2017 – Jan 2020</p>
-<h2 id="technical-projects">Technical Projects</h2>
-<p><strong>HouseCheck — Verifiable Building Records for NYC
-Renters</strong> · 2026 · <a href="https://github.com/nessaisling-lab/housecheck">repo</a>
-<em>Building Health Card scored from public NYC data, with an export a
-stranger can verify offline. Live; 149 tests.</em></p>
+<h3 id="airbnb-flushing-ny">Airbnb – Flushing, NY</h3>
+<p><strong>Self-Employed Property Manager (Owner-Operator)</strong>
+Jul. 2017 – Jan. 2020</p>
+<h2 id="projects">Projects</h2>
 <ul>
-<li>Built a Rust/axum service whose exports carry an append-only SHA-256
-hash chain with an Ed25519-signed head and three verification outcomes
-(signed and intact, intact but unsigned, tampered), with source dataset
-IDs inside the signed region.</li>
-<li>Wrote an independent Python verifier and found a forgery path: a
-rewritten chain re-signed with a forger’s own key verified as intact.
-Closed it by publishing the signing key at a stable endpoint.</li>
-</ul>
-<p><strong>Ziqpu — Multi-Agent Astrology Synastry Engine</strong> · 2026
-· <a href="https://github.com/nessaisling-lab/Ziqpu-L2-Cycle-3">repo</a>
-<em>Scores a natal chart against the chart of anything with a date of
-origin (v1: stocks by IPO); reflection, not advice.</em></p>
-<ul>
-<li>Led a 3-person team on a Rust workspace: a measurer agent and an
-interpreter agent, a read-only axum sidecar, an MCP server, and a Dioxus
-UI.</li>
-</ul>
-<p><strong>Resona / Wisper — Privacy-First On-Device
-Voice-to-Text</strong> · 2026 · <a href="https://github.com/aislingld-pursuit/L2-Clone-Prodject">repo</a>
-<em>Cross-platform desktop dictation app: live streaming + file/YouTube
-transcription, 100% on-device via whisper.cpp.</em></p>
-<ul>
-<li>Real-time pipeline (cpal → energy-VAD → incremental Whisper) with
-zero cloud STT and no accounts; CUDA/Vulkan/Metal/CPU backends from one
-Tauri 2 + Rust codebase.</li>
-<li>Ed25519-signed licenses with client-vs-server entitlement gating;
-fixed SSRF and unsafe-export issues; shipped v0.2.0-beta.29 on Windows,
-macOS, Linux.</li>
+<li><strong>HouseCheck: Verifiable Building Records for NYC
+Renters</strong> (https://github.com/nessaisling-lab/housecheck) –
+Building Health Card scored from public NYC data, with an export a
+stranger can verify offline. Live; 149 tests. Built a Rust/axum service
+whose exports carry an append-only SHA-256 hash chain with an
+Ed25519-signed head and three verification outcomes (signed and intact,
+intact but unsigned, tampered), with source dataset IDs inside the
+signed region. Wrote an independent Python verifier and found a forgery
+path: a rewritten chain re-signed with a forger’s own key verified as
+intact. Closed it by publishing the signing key at a stable
+endpoint</li>
+<li><strong>Ziqpu: Multi-Agent Astrology Synastry Engine</strong>
+(https://github.com/nessaisling-lab/Ziqpu-L2-Cycle-3) – Scores a natal
+chart against the chart of anything with a date of origin (v1: stocks by
+IPO); reflection, not advice. Led a 3-person team on a Rust workspace: a
+measurer agent and an interpreter agent, a read-only axum sidecar, an
+MCP server, and a Dioxus UI</li>
+<li><strong>Resona / Wisper: Privacy-First On-Device
+Voice-to-Text</strong>
+(https://github.com/aislingld-pursuit/L2-Clone-Prodject) –
+Cross-platform desktop dictation app: live streaming + file/YouTube
+transcription, 100% on-device via whisper.cpp. Real-time pipeline (cpal
+→ energy-VAD → incremental Whisper) with zero cloud STT and no accounts;
+CUDA/Vulkan/Metal/CPU backends from one Tauri 2 + Rust codebase.
+Ed25519-signed licenses with client-vs-server entitlement gating; fixed
+SSRF and unsafe-export issues; shipped v0.2.0-beta.29 on Windows, macOS,
+Linux</li>
 </ul>
 <h2 id="education">Education</h2>
-<p><strong>Pursuit — AI-Native Builder (Inaugural Cohort)</strong> ·
-Long Island City, NY · Mar 2025 – Present <em>600+ hour, 7-month
-in-person intensive: 10+ end-to-end builds, 8+ PRDs; client capstone
-Demo Day Nov. 10, 2026.</em></p>
-<p><strong>Per Scholas — IT Support</strong> · Graduated Oct 2025 —
-CompTIA A+, Google IT Support, ServiceNow ITSM</p>
-<p><strong>Vaughn College — Aircraft Mechanic Airframe &amp;
-Powerplant</strong> · Coursework complete · Flushing, NY</p>
-<h2 id="skills-tools">Skills &amp; Tools</h2>
+<ul>
+<li>Pursuit, AI-Native Builder (Inaugural Cohort), Long Island City, NY
+(Mar. 2025 – Present) – 600+ hour, 7-month in-person intensive: 10+
+end-to-end builds, 8+ PRDs; client capstone Demo Day Nov. 10, 2026.</li>
+<li>Per Scholas, IT Support — CompTIA A+, Google IT Support, ServiceNow
+ITSM (Grad. Oct. 2025)</li>
+<li>Vaughn College, Aircraft Mechanic Airframe &amp; Powerplant
+(coursework complete), Flushing, NY</li>
+</ul>
+<h2 id="skills">Skills</h2>
 <ul>
 <li><strong>Languages &amp; Frameworks:</strong> Rust (axum, SQLx, Tauri
 2, Dioxus, Iced), Python, C, C++, Assembly, TypeScript/React, SQL

@@ -7,6 +7,7 @@
 //! subdirectory never has to be spelled out.
 
 mod content;
+mod resume;
 mod theme;
 
 use content::*;
@@ -29,6 +30,12 @@ fn main() -> std::io::Result<()> {
 
     write(&out.join("assets/site.css"), &css(), &mut written)?;
     write(&out.join("assets/site.js"), SCRIPT, &mut written)?;
+
+    // The résumé's three sources. tools/build-resume.sh turns them into PDF, Word, txt, html.
+    let cv = out.join("assets/docs/resume");
+    write(&cv.join("resume.tex"), &resume::to_tex(), &mut written)?;
+    write(&cv.join("resume.md"), &resume::to_md(), &mut written)?;
+    write(&cv.join("resume.json"), &resume::to_json(), &mut written)?;
 
     let home = rsx! { Home { root: "".to_string() } };
     write(&out.join("index.html"), &page("", "", "Software engineer, Rust-first",
@@ -631,6 +638,10 @@ fn Resume(root: String) -> Element {
             }
         }
         section { class: "wrap block",
+            Label { prompt: "$".to_string(), text: "cat resume.md".to_string() }
+            Cv {}
+        }
+        section { class: "wrap block",
             h2 { class: "block-h", "Documents" }
             ul { class: "docs",
                 for d in DOCS {
@@ -643,6 +654,65 @@ fn Resume(root: String) -> Element {
                         }
                     }
                 }
+            }
+        }
+    }
+}
+
+/// The résumé as a page, from the same data as the PDF and Word files.
+#[component]
+fn Cv() -> Element {
+    rsx! {
+        article { class: "cv",
+            p { class: "cv-summary", "{resume::SUMMARY}" }
+            h2 { "Experience" }
+            for e in resume::EXPERIENCE { CvEntry { e: e } }
+            h2 { "Technical projects" }
+            for p in resume::PROJECTS {
+                div { class: "cv-entry",
+                    div { class: "cv-row",
+                        h3 { a { href: "{p.url}", "{p.name}" } span { class: "quiet", " · {p.kind}" } }
+                        span { class: "cv-when", "{p.year}" }
+                    }
+                    p { class: "cv-desc", "{p.desc}" }
+                    ul { for b in p.bullets { li { "{b}" } } }
+                }
+            }
+            h2 { "Education" }
+            for e in resume::EDUCATION { CvEntry { e: e } }
+            h2 { "Skills" }
+            dl { class: "cv-skills",
+                for (k, v) in resume::SKILLS {
+                    div { dt { "{k}" } dd { "{v}" } }
+                }
+            }
+        }
+    }
+}
+
+#[component]
+fn CvEntry(e: &'static resume::Entry) -> Element {
+    if e.compact {
+        let rest = e.compact_rest();
+        let right = e.compact_right();
+        return rsx! {
+            div { class: "cv-entry compact",
+                div { class: "cv-row",
+                    h3 { "{e.org}" span { class: "quiet", " · {rest}" } }
+                    span { class: "cv-when", "{right}" }
+                }
+            }
+        };
+    }
+    rsx! {
+        div { class: "cv-entry",
+            div { class: "cv-row",
+                h3 { "{e.org}" span { class: "quiet", " · {e.role}" } }
+                span { class: "cv-when", "{e.when}" }
+            }
+            p { class: "cv-desc", "{e.desc}" span { class: "quiet", " · {e.place}" } }
+            if !e.bullets.is_empty() {
+                ul { for b in e.bullets { li { "{b}" } } }
             }
         }
     }

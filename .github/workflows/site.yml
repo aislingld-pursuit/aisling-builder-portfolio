@@ -39,7 +39,8 @@ jobs:
 
       - name: Committed pages must match what the Rust renders
         run: |
-          if ! git diff --exit-code -- index.html 404.html work about resume assets/site.css assets/site.js; then
+          if ! git diff --exit-code -- index.html 404.html work about resume assets/site.css assets/site.js \
+               assets/docs/resume/resume.tex assets/docs/resume/resume.md assets/docs/resume/resume.json; then
             echo "::error::Generated pages do not match the output of site/."
             echo "Edit site/src/ (or site/assets/), then run:"
             echo "    cargo run --manifest-path site/Cargo.toml"
