@@ -179,6 +179,9 @@ a.earlier-name{color:var(--accent);text-underline-offset:.2em}
 .media{margin-bottom:2.5rem}
 .media video{background:var(--sheet);border:1px solid var(--rule);padding:.5rem}
 .media.tall video{max-height:34rem;width:auto}
+.gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.25rem;margin-bottom:2.5rem}
+.gallery img{background:var(--sheet);border:1px solid var(--rule);padding:.35rem}
+@media (max-width:40rem){.gallery{grid-template-columns:minmax(0,1fr)}}
 .cs{padding:2rem 0;border-top:1px solid var(--rule)}
 .cs:first-of-type{border-top:0;padding-top:0}
 .cs h2{font-size:1.6rem;display:flex;align-items:baseline;gap:.8rem;margin-bottom:.8rem}

@@ -448,6 +448,13 @@ fn Case(root: String, i: usize) -> Element {
                             figcaption { "fig. 1 · {m.alt}" }
                         }
                     }
+                    if GALLERY.iter().any(|s| s.slug == b.slug) {
+                        div { class: "gallery",
+                            for (n, s) in GALLERY.iter().filter(|s| s.slug == b.slug).enumerate() {
+                                GalleryFig { n: n + 1, src: format!("{root}{}", s.src), alt: s.alt.to_string(), caption: s.caption.to_string() }
+                            }
+                        }
+                    }
                     for k in 0..b.sections.len() {
                         CaseSection { i: i, k: k }
                     }
@@ -474,6 +481,18 @@ fn Case(root: String, i: usize) -> Element {
                     span { class: "pager-n", "{next.name}" }
                 }
             }
+        }
+    }
+}
+
+#[component]
+fn GalleryFig(n: usize, src: String, alt: String, caption: String) -> Element {
+    rsx! {
+        figure {
+            a { href: "{src}", "aria-label": "Open figure {n} full size",
+                img { src: "{src}", alt: "{alt}", width: "1600", height: "900", loading: "lazy", decoding: "async" }
+            }
+            figcaption { "fig. {n} · {caption}" }
         }
     }
 }

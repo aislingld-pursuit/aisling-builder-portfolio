@@ -272,8 +272,8 @@ pub const BUILDS: &[Build] = &[
         ],
         verify: None,
         note: Some(
-            "Screens and a narrated walkthrough exist, but they show the client's name, so they are \
-             shared on request rather than published here.",
+            "Screens are frames from the team's walkthrough, on invented data, with the client's \
+             name and logo pixelated. The full narrated walkthrough is available on request.",
         ),
         featured: true,
     },
@@ -601,6 +601,49 @@ pub const BUILDS: &[Build] = &[
     },
 ];
 
+/// Still images for a case study, shown as a captioned gallery.
+pub struct Still {
+    pub slug: &'static str,
+    pub src: &'static str,
+    pub alt: &'static str,
+    pub caption: &'static str,
+}
+
+/// The capstone stills are frames from the team's walkthrough recording, on invented
+/// data, with the client's name and logo pixelated (every OCR hit plus the logo
+/// regions, then re-checked by OCR). The e-ticket email frame was left out: its body
+/// names the client in text too small to redact reliably.
+pub const GALLERY: &[Still] = &[
+    Still {
+        slug: "gala-guest-list",
+        src: "assets/work/gala-guest-list/06-record-a-payment.webp",
+        alt: "Staff app: recording a $12,500 check from an invented sponsor, Acme Community \
+              Partners, with the check number and deposit date. Client name and logo pixelated.",
+        caption: "A sponsor's check is recorded: amount, check number, deposit date. No card or bank details, ever.",
+    },
+    Still {
+        slug: "gala-guest-list",
+        src: "assets/work/gala-guest-list/09-sponsor-portal.webp",
+        alt: "Sponsor portal: a sponsor's private page with open guest seats to fill and a \
+              balance of $12,500 of $25,000. Client logo pixelated.",
+        caption: "The sponsor's private link: name your guests, see what's paid. No account needed.",
+    },
+    Still {
+        slug: "gala-guest-list",
+        src: "assets/work/gala-guest-list/19-ipad-qr-check-in.webp",
+        alt: "iPad check-in: a scanned QR ticket confirms Sam Ortega is checked in, with an Undo \
+              button, above an A-to-Z guest list.",
+        caption: "At the door: the scan says who came in, and Undo is one tap away.",
+    },
+    Still {
+        slug: "gala-guest-list",
+        src: "assets/work/gala-guest-list/22-live-arrivals-dashboard.webp",
+        alt: "Staff dashboard: commitments, money received, seats named and arrivals, with \
+              follow-ups listed by sponsor.",
+        caption: "After the doors close: money, seats and arrivals on one screen.",
+    },
+];
+
 /// Earlier work, listed on the Work page without a case study of its own.
 pub struct Earlier {
     pub name: &'static str,
@@ -824,6 +867,7 @@ mod tests {
                 paths.push(m.poster);
             }
         }
+        paths.extend(GALLERY.iter().map(|s| s.src));
         for p in paths {
             assert!(root().join(p).is_file(), "missing asset: {p}");
         }
