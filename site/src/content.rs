@@ -375,7 +375,11 @@ pub const BUILDS: &[Build] = &[
             Fig { v: "+37.06%", k: "paper-trade ROI, verified" },
         ],
         stack: &["Rust", "Iced", "axum", "SQLx", "Swiss Ephemeris", "WGSL shaders"],
-        links: &[Link { label: "Nisaba brand site", href: "https://nessaisling-lab.github.io/nisaba-site/" }],
+        links: &[
+            Link { label: "Download v12.2.0 (Windows)", href: "https://github.com/nessaisling-lab/nisaba-capital-charting/releases/tag/v12.2.0" },
+            Link { label: "Source", href: "https://github.com/nessaisling-lab/nisaba-capital-charting" },
+            Link { label: "Nisaba brand site", href: "https://nessaisling-lab.github.io/nisaba-site/" },
+        ],
         media: None,
         sections: &[
             Section {
@@ -612,7 +616,8 @@ pub const EARLIER: &[Earlier] = &[
     },
     Earlier {
         name: "Nuclear Force: Escape Router",
-        line: "NYC nuclear-emergency simulator: blast zones, a shelter finder over 17 real sites, evacuation routing.",
+        line: "Built on a fork of Nicolercc's nuclear-shelter-app: NYC blast zones, a shelter finder over \
+               17 real sites, evacuation routing, packaged for Windows with Electron.",
         href: "https://github.com/aislingld-pursuit/Nightfall-Win-x64",
     },
     Earlier {
