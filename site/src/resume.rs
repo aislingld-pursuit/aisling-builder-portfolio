@@ -120,7 +120,7 @@ pub const PROJECTS: &[Project] = &[
         kind: "Verifiable Building Records for NYC Renters",
         year: "2026",
         desc: "Building Health Card scored from public NYC data, with an export a stranger can verify \
-               offline. Live; 149 tests.",
+               offline. Live; 176 tests.",
         url: "https://github.com/nessaisling-lab/housecheck",
         bullets: &[
             "Built a Rust/axum service whose exports carry an append-only SHA-256 hash chain with an \

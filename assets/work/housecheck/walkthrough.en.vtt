@@ -1,0 +1,91 @@
+WEBVTT
+
+00:00:00.800 --> 00:00:01.910
+HouseCheck.
+
+00:00:01.960 --> 00:00:05.350
+Carfax for New York apartments, built in Rust.
+
+00:00:07.330 --> 00:00:08.760
+Before you sign a lease,
+
+00:00:08.810 --> 00:00:12.480
+the information that says whether a building is maintained is already public.
+
+00:00:12.570 --> 00:00:15.200
+It's just spread across four agency websites.
+
+00:00:15.250 --> 00:00:19.460
+HouseCheck asks what matters to you, then puts it on one card.
+
+00:00:20.960 --> 00:00:21.670
+Type an address.
+
+00:00:21.720 --> 00:00:25.690
+Two hundred fifty Brooklyn buildings, served live.
+
+00:00:29.390 --> 00:00:31.560
+A score out of a hundred, across condition,
+
+00:00:31.730 --> 00:00:34.980
+legal protection, neighborhood and accessibility.
+
+00:00:35.330 --> 00:00:37.920
+Every number links back to the city dataset it came from.
+
+00:00:39.520 --> 00:00:43.690
+The violations are in the city's own words, with how long each has been open.
+
+00:00:44.100 --> 00:00:47.550
+Repair speed is the one measure of behavior, not just state.
+
+00:00:54.320 --> 00:00:55.890
+And you can take the record with you.
+
+00:00:56.000 --> 00:00:58.750
+The downloaded file is the verifiable one.
+
+00:01:04.490 --> 00:01:05.860
+Here's that exact file.
+
+00:01:05.910 --> 00:01:09.080
+I check it offline with HouseCheck's own verification code.
+
+00:01:09.130 --> 00:01:13.680
+The hash chain recomputes, the Ed25519 signature is valid,
+
+00:01:13.730 --> 00:01:16.440
+and the key matches the one published at slash meta.
+
+00:01:16.570 --> 00:01:17.740
+Signed and intact.
+
+00:01:18.430 --> 00:01:22.880
+Change one character in one violation, and it's caught, down to the row.
+
+00:01:24.410 --> 00:01:26.000
+But signing alone wasn't enough.
+
+00:01:26.050 --> 00:01:28.960
+A forger can rewrite a row, rebuild the whole chain,
+
+00:01:29.010 --> 00:01:31.980
+and sign it with their own key, and it still checks out as intact.
+
+00:01:32.090 --> 00:01:34.400
+I found that hole while verifying it in production.
+
+00:01:35.220 --> 00:01:39.330
+That's why the signing key is published apart from the documents it signs.
+
+00:01:39.520 --> 00:01:42.690
+Compare against it, and the forgery is exposed.
+
+00:01:45.350 --> 00:01:48.260
+A hundred seventy-six tests, clippy clean, live.
+
+00:01:48.310 --> 00:01:52.180
+Two hundred fifty buildings, about a tenth of a percent of the city.
+
+00:01:52.230 --> 00:01:54.420
+It's a signal, not a legal ruling.

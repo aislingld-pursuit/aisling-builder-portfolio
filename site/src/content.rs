@@ -87,12 +87,12 @@ pub const BUILDS: &[Build] = &[
         group: Group::Integrity,
         line: "Carfax for NYC apartments: a Building Health Card scored from public city data, \
                with an export a stranger can verify offline.",
-        stat: "149 tests · Ed25519 · live",
+        stat: "176 tests · Ed25519 · live",
         role: "Lead builder · 192 of 201 commits",
         team: &[Person { name: "Antonin Lesov", handle: "antoninlesov", role: "frontend" }],
         status: "Live",
         figs: &[
-            Fig { v: "149", k: "tests, clippy clean" },
+            Fig { v: "176", k: "tests, clippy clean" },
             Fig { v: "250", k: "buildings served live" },
             Fig { v: "26,343", k: "violations stored" },
             Fig { v: "2.51 MB", k: "whole data artifact" },
@@ -109,13 +109,14 @@ pub const BUILDS: &[Build] = &[
             },
         ],
         media: Some(Media {
-            video: "assets/work/housecheck/workflow.mp4",
-            poster: "assets/work/housecheck/workflow-poster.jpg",
-            alt: "HouseCheck: searching an address through to a Building Health Card",
-            w: 440,
-            h: 714,
-            captions: None,
-            autoplay: true,
+            video: "assets/work/housecheck/walkthrough.mp4",
+            poster: "assets/work/housecheck/walkthrough-poster.jpg",
+            alt: "Narrated walkthrough: the live app on a phone, from an address to its Building Health \
+                  Card and export, then that export verified offline, tampered with, and forged",
+            w: 1280,
+            h: 720,
+            captions: Some("assets/work/housecheck/walkthrough.en.vtt"),
+            autoplay: false,
         }),
         sections: &[
             Section {
@@ -173,7 +174,11 @@ pub const BUILDS: &[Build] = &[
             "Every live figure is served by the app itself. The signing key is published apart from the documents it signs:",
             "curl -s https://housecheck-nessa.fly.dev/meta",
         )),
-        note: None,
+        note: Some(
+            "The walkthrough records the live app, then runs HouseCheck's own verification code on \
+             the file it downloaded: the terminal output is real. Narrated in a synthetic clone of my \
+             own voice, made on my machine; made with Claude Code.",
+        ),
         featured: true,
     },
     Build {
